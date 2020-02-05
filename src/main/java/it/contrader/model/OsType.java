@@ -1,4 +1,4 @@
-package it.contrader.model;
+package it.contrader.model;import javax.print.attribute.standard.MediaSize.Other;
 
 public class OsType {
 	
@@ -50,6 +50,33 @@ public class OsType {
 		return "OsType [id=" + id_ostype + ", name=" + name + ", command=" + command + "]";
 	}
 	
-	/**public boolean equals (Object obj) { }
-	*
+	public boolean equals (Object obj) { 
+		if (this==obj)
+			return true;
+		if(obj==null)
+			return false;
+		if (getClass()!=obj.getClass())
+			return false;
+		OsType osType = (OsType) obj;
+		
+		if (id_ostype != osType.id_ostype) 
+			return false;
+			
+			if (name == null) {
+				if (osType.name != null)
+					return false;
+			} else if (!name.equals(osType.name))
+				return false;
+			
+		
+		if (command == null) {
+			if (osType.command != null) {
+				return false;
+			}else if (!command.equals(osType.command)) {
+				return false;
+			}
+		}
+		return true;	
+	}
+	
 }
