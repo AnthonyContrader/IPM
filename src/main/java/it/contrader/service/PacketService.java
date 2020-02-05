@@ -44,4 +44,11 @@ public class PacketService {
 	public boolean update(PacketDTO pDto) {
 		return this.packetDAO.update( this.packetConverter.toEntity(pDto) );
 	}
+	
+	// Deletes a packet
+	// @param: packet id to delete
+	// @return: true if packet was deleted, false otherwise
+	public boolean delete(int packetIdToDelete) {
+		return this.packetDAO.delete( packetIdToDelete );
+	}
 }
