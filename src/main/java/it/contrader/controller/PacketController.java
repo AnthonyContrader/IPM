@@ -70,6 +70,47 @@ public class PacketController implements Controller {
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "PacketUpdate", request);
 			break;
+			
+		case "PACKETLIST":
+			List<PacketDTO> packetsDTO = packetService.getAll();
+			request.put("packets", packetsDTO);
+			MainDispatcher.getInstance().callView("Packet", request);
+			break;
+			
+		case "GETCHOICE":
+			switch (choice.toUpperCase()) {
+			
+			case "L":
+				MainDispatcher.getInstance().callView(sub_package + "PacketRead", null);
+				break;
+				
+			case "I":
+				MainDispatcher.getInstance().callView(sub_package + "PacketInsert", null);
+				break;
+				
+			case "M":
+				MainDispatcher.getInstance().callView(sub_package + "PacketUpdate", null);
+				break;
+				
+			case "C":
+				MainDispatcher.getInstance().callView(sub_package + "PacketDelete", null);
+				break;
+				
+			case "E":
+				MainDispatcher.getInstance().callView("Login", null);
+				break;
+		
+			case "B":
+				MainDispatcher.getInstance().callView("HomeAdmin", null);
+				break;
+				
+			default:
+				MainDispatcher.getInstance().callView("Login", null);
+			}
+	
+		default:
+			MainDispatcher.getInstance().callView("Login", null);
+}
 		}
 	}
 }
