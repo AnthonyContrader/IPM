@@ -43,6 +43,7 @@ public class Category
 		this.name = name;
 	}
 	
+	/* TRANSFORMATION OF STRING TO OBJECT */
 	public String toString() 
 	{
 		return id_cat + "\t" + name;
