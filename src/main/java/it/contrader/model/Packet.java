@@ -15,10 +15,12 @@ public class Packet {
 		
 	}
 
+	// Half constructor
 	public Packet (String newName, String newDescription) {
 		this.name = newName;
 	}
 
+	// Full constructor
 	public Packet (int newId, String newName, String newDescription) {
 		this.id_pack = newId;
 		this.name = newName;
@@ -35,7 +37,7 @@ public class Packet {
 	public void setName(String newName) { this.name = newName; }
 	public void setDescription(String newDescription) { this.description = newDescription; }
 
-	//Trasforma un pacchetto in una stringa
+	// Transforms this packet to a string
 	@Override
 	public String toString() {
 		return Integer.toString( this.getId_pack() ) + "\t" +
@@ -43,7 +45,7 @@ public class Packet {
 				this.getDescription();
 	}
 
-	//TODO: equals
+	// Checks if two packets are equal
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
