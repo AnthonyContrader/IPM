@@ -60,7 +60,7 @@ public class Environment {
 	
 	// Compare method between various objects
 	
-	/*@Override
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -82,6 +82,6 @@ public class Environment {
 		} else if (!description.equals(other.description))
 			return false;
 		return true;
-	}*/
+	}
 	
 }
