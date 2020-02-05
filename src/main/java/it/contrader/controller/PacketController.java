@@ -31,6 +31,21 @@ public class PacketController implements Controller {
 			PacketDTO packetDTO = this.packetService.read(id);
 			request.put("packet", packetDTO);
 			MainDispatcher.getInstance().callView(sub_package + "PacketRead", request);
+			break;
+			
+		case "INSERT":
+			name = request.get("name").toString();
+			description = request.get("description").toString();
+			
+			PacketDTO packetToInsert = new PacketDTO(name, description);
+			packetService.insert(packetToInsert);
+			
+			request = new Request();
+			request.put("mode", "mode");
+			
+			MainDispatcher.getInstance().callView(sub_package + "UserInsert", request);
+			break;
+			
 		}
 	}
 }
