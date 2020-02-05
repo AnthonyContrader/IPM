@@ -15,10 +15,12 @@ public class Packet {
 		
 	}
 
+	// Half constructor
 	public Packet (String newName, String newDescription) {
 		this.name = newName;
 	}
 
+	// Full constructor
 	public Packet (int newId, String newName, String newDescription) {
 		this.id_pack = newId;
 		this.name = newName;
@@ -43,7 +45,7 @@ public class Packet {
 				this.getDescription();
 	}
 
-	//Checks if two packets are equal
+	// Checks if two packets are equal
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
