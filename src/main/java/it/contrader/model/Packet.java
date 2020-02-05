@@ -44,4 +44,27 @@ public class Packet {
 	}
 
 	//TODO: equals
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Packet other = (Packet) obj;
+		if (this.getId_pack() != other.getId_pack() )
+			return false;
+		if (this.getName() == null) {
+			if (other.getName() != null)
+				return false;
+		} else if (!this.getName().equals(other.getName()))
+			return false;
+		if (this.getDescription() == null) {
+			if (other.getDescription() != null)
+				return false;
+		} else if (!this.getDescription().equals(other.getDescription()))
+			return false;
+		return true;
+	}
 }
