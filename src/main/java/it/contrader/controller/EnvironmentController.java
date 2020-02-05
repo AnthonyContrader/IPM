@@ -2,7 +2,6 @@ package it.contrader.controller;
 
 import java.util.List;
 import it.contrader.dto.EnvironmentDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.EnvironmentService;
 
@@ -55,7 +54,7 @@ public class EnvironmentController implements Controller {
 			request.put("mode", "mode");
 			MainDispatcher.getInstance().callView(sub_package + "EnvironmentUpdate", request);
 			break;
-		case "USERLIST":
+		case "ENVIRONMENTLIST":
 			List<EnvironmentDTO> environmentsDTO = environmentService.getAll();
 			//Impacchetta la request con la lista degli user
 			request.put("environments", environmentsDTO);
@@ -87,7 +86,7 @@ public class EnvironmentController implements Controller {
 				}	
 			default:
 				MainDispatcher.getInstance().callView("Login", null);
+			}
 		}
-	}
 }
 	
