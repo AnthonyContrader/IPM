@@ -22,4 +22,13 @@ public class PacketConverter {
 				packetDTO.getDescription() );
 	}
 	
+	public List<PacketDTO> toDTOList(List<Packet> packetsList) {
+		List<PacketDTO> packetDTOList = new ArrayList<PacketDTO>();
+		
+		for (Packet packet : packetsList) {
+			packetDTOList.add( toDTO(packet) );
+		}
+		
+		return packetDTOList;
+	}
 }
