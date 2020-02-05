@@ -24,12 +24,31 @@ public class PacketService {
 		return this.packetConverter.toDTOList( this.packetDAO.getAll() );
 	}
 	
-	// Converts a packet to DTO
+	// Converts a packet to DTO and reads it
 	// @param: the packet id to be modified
 	// @return: the converted packet
 	public PacketDTO read(int packetIdToModify) {
 		return this.packetConverter.toDTO( this.packetDAO.read( packetIdToModify ) );
 	}
 	
+	// Inserts a packet
+	// @param: packet to insert
+	// @return: true if inserted, false otherwise
+	public boolean insert(PacketDTO pDto) {
+		return this.packetDAO.insert( this.packetConverter.toEntity(pDto) );
+	}
 	
+	// Updates a packet
+	// @param: packet to update
+	// @return: true if updated, false otherwise
+	public boolean update(PacketDTO pDto) {
+		return this.packetDAO.update( this.packetConverter.toEntity(pDto) );
+	}
+	
+	// Deletes a packet
+	// @param: packet id to delete
+	// @return: true if packet was deleted, false otherwise
+	public boolean delete(int packetIdToDelete) {
+		return this.packetDAO.delete( packetIdToDelete );
+	}
 }
