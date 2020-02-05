@@ -3,6 +3,7 @@ package it.contrader.controller;
 import java.util.List;
 
 import it.contrader.dto.PacketDTO;
+import it.contrader.dto.UserDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.PacketService;
 
@@ -43,7 +44,7 @@ public class PacketController implements Controller {
 			request = new Request();
 			request.put("mode", "mode");
 			
-			MainDispatcher.getInstance().callView(sub_package + "UserInsert", request);
+			MainDispatcher.getInstance().callView(sub_package + "PacketInsert", request);
 			break;
 			
 		case "DELETE":
@@ -54,9 +55,21 @@ public class PacketController implements Controller {
 			request = new Request();
 			
 			request.put("mode", "mode");
-			MainDispatcher.getInstance().callView(sub_package + "UserDelete", request);
+			MainDispatcher.getInstance().callView(sub_package + "PacketDelete", request);
 			break;
 			
+		case "UPDATE":
+			id = Integer.parseInt(request.get("id").toString());
+			name = request.get("name").toString();
+			description = request.get("description").toString();
+
+			PacketDTO packetToUpdate = new PacketDTO(name, description);
+			packetToUpdate.setId_pack( id );
+			packetService.update( packetToUpdate );
+			request = new Request();
+			request.put("mode", "mode");
+			MainDispatcher.getInstance().callView(sub_package + "PacketUpdate", request);
+			break;
 		}
 	}
 }
