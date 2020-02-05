@@ -46,6 +46,17 @@ public class PacketController implements Controller {
 			MainDispatcher.getInstance().callView(sub_package + "UserInsert", request);
 			break;
 			
+		case "DELETE":
+			id = Integer.parseInt(request.get("id").toString());
+			
+			this.packetService.delete(id);
+			
+			request = new Request();
+			
+			request.put("mode", "mode");
+			MainDispatcher.getInstance().callView(sub_package + "UserDelete", request);
+			break;
+			
 		}
 	}
 }
