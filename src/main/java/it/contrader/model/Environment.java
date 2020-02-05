@@ -6,7 +6,7 @@ public class Environment {
 	private String name;
 	private String description;
 	
-	// Definizione costruttori: costruttore vuoto, costruttore con id, costruttore senza ID
+	// Construtors definition, empty constructor, with ID constructr and without ID constructor
 	
 	public Environment () {
 		 
@@ -24,7 +24,7 @@ public class Environment {
 		this.description = description;	
 	}
 	
-	// Definizione metodi setter e getter
+	// Setter and getter method definition
 	
 	public int getId_env () {
 		return this.id_env;
@@ -50,7 +50,7 @@ public class Environment {
 		this.description = description;
 	}
 	
-	// Metodo per trasformare in stringa
+	// Metod to transform in String all the values
 	
 	@Override
 	public String toString() {
@@ -58,7 +58,7 @@ public class Environment {
 	}
 	
 	
-	// Metodo di confronto tra i vari oggetti
+	// Compare method between various objects
 	
 	/*@Override
 	public boolean equals(Object obj) {
