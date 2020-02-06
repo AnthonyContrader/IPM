@@ -14,20 +14,23 @@ public class OsType {
 		this.command = command;
 	}
 
-	public OsType(int id, String name, String command) {
+	public OsType(int id_ostype, String name, String command) {
 		super();
-		this.id_ostype = id;
+		this.id_ostype = id_ostype;
 		this.name = name;
 		this.command = command;
 	}
 
-	public int getId() {
+	
+
+	public int getId_ostype() {
 		return id_ostype;
 	}
 
-	public void setId(int id) {
-		this.id_ostype = id;
+	public void setId_ostype(int id_ostype) {
+		this.id_ostype = id_ostype;
 	}
+
 
 	public String getName() {
 		return name;
@@ -47,7 +50,7 @@ public class OsType {
 
 	@Override
 	public String toString() {
-		return "OsType [id=" + id_ostype + ", name=" + name + ", command=" + command + "]";
+		return "OsType [id_ostype=" + id_ostype + ", name=" + name + ", command=" + command + "]";
 	}
 	
 	public boolean equals (Object obj) { 

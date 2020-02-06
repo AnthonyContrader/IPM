@@ -15,16 +15,13 @@ public class OsTypeView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("---Gestione sistemi operativi---");
-			System.out.println("---Gestione sistemi operativi---");
-			System.out.println("---Gestione sistemi operativi---");
-			
+			System.out.println("---Gestione sistemi operativi---");			
 			@SuppressWarnings("unchecked")
 			List<OsTypeDTO> osTypes = (List<OsTypeDTO>) request.get("osTypes");
 		
 			for (OsTypeDTO u: osTypes)
 				System.out.println(u);
-			System.out.println();
+				System.out.println();
 		}
 	}
 

@@ -9,12 +9,12 @@ import it.contrader.model.OsType;
 public class OsTypeConverter {
 
 	public OsTypeDTO toDTO (OsType osType) {
-		OsTypeDTO osTypeDTO = new OsTypeDTO(osType.getId(), osType.getName(), osType.getCommand());
+		OsTypeDTO osTypeDTO = new OsTypeDTO(osType.getId_ostype(), osType.getName(), osType.getCommand());
 		return osTypeDTO;
 	}
 	
 	public OsType toEntity (OsTypeDTO osTypeDTO) {
-		OsType osType = new OsType(osTypeDTO.getId_ostype(), osTypeDTO.getName(), osTypeDTO.getCommand());
+		OsType osType = new OsType(osTypeDTO.getId_ostype(),osTypeDTO.getName(), osTypeDTO.getCommand());
 		return osType;
 	}
 	

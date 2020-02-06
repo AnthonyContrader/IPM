@@ -9,10 +9,10 @@ import it.contrader.model.OsType;
 
 public class OsTypeDAO {
 	private final String QUERY_ALL = "SELECT * FROM ostype";
-	private final String QUERY_CREATE = "INSERT INTO ostype (id_ostype, name, command) VALUES (?,?,?)";
+	private final String QUERY_CREATE = "INSERT INTO ostype (name, command) VALUES (?,?)";
 	private final String QUERY_READ = "SELECT * FROM ostype WHERE id_ostype=?";
-	private final String QUERY_UPDATE = "UPDATE ostype SET id_ostype =?, name=?, command=?";
-	private final String QUERY_DELETE = "DELETE FROM ostype WHERE id_type=?";
+	private final String QUERY_UPDATE = "UPDATE ostype SET name=?, command=? WHERE id_ostype=?";
+	private final String QUERY_DELETE = "DELETE FROM ostype WHERE id_ostype=?";
 	
 	public OsTypeDAO () {
 		
@@ -30,8 +30,9 @@ public class OsTypeDAO {
 				String name = resultSet.getString("name");
 				String command = resultSet.getString("command");
 				osType = new OsType(id_ostype, name, command);
-				osType.setId(id_ostype);
+				osType.setId_ostype(id_ostype);
 				osTypesList.add(osType);
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -68,7 +69,7 @@ public class OsTypeDAO {
 			command = resultSet.getString("command");
 			
 			OsType osType = new OsType(name, command);
-			osType.setId(resultSet.getInt("id"));
+			osType.setId_ostype(resultSet.getInt("id_ostype"));
 			
 			return osType;
 		
@@ -81,23 +82,25 @@ public class OsTypeDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 
 		// Check if id is present
-		if (osTypeToUpdate.getId() == 0)
+		if (osTypeToUpdate.getId_ostype() == 0)
 			return false;
 
-		OsType osTypeRead = read(osTypeToUpdate.getId());
+		OsType osTypeRead = read(osTypeToUpdate.getId_ostype());
+						
 		if (!osTypeRead.equals(osTypeToUpdate)) {
 			try {
-				if (osTypeToUpdate.getName() == null||osTypeToUpdate.getName().equals("")) {
+
+				if (osTypeToUpdate.getName() == null || osTypeToUpdate.getName().equals("")) {
 					osTypeToUpdate.setName(osTypeRead.getName());
 				}
-				if (osTypeToUpdate.getCommand()==null||osTypeToUpdate.getCommand().equals("")) {
+				if (osTypeToUpdate.getCommand()==null || osTypeToUpdate.getCommand().equals("")) {
 					osTypeToUpdate.setCommand(osTypeRead.getCommand());
 				}
-				
+									
 				PreparedStatement preparedStatement = (PreparedStatement)connection.prepareStatement(QUERY_UPDATE);
-				preparedStatement.setInt(1, osTypeToUpdate.getId());
-				preparedStatement.setString(2, osTypeToUpdate.getName());
-				preparedStatement.setString(3, osTypeToUpdate.getCommand());;
+				preparedStatement.setString(1, osTypeToUpdate.getName());
+				preparedStatement.setString(2, osTypeToUpdate.getCommand());
+				preparedStatement.setInt(3, osTypeToUpdate.getId_ostype());
 				int a = preparedStatement.executeUpdate();
 				if (a>0)
 					return true;
@@ -110,7 +113,7 @@ public class OsTypeDAO {
 		return false;
 	}
 	
-
+ 
 	public boolean delete(int id) {
 		Connection connection = ConnectionSingleton.getInstance();
 		try {

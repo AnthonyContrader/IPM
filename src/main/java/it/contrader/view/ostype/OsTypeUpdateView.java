@@ -37,7 +37,7 @@ public class OsTypeUpdateView extends AbstractView{
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("id", id);
+		request.put("id_ostype", id);
 		request.put("name", name);
 		request.put("command", command);
 		request.put("mode", mode);

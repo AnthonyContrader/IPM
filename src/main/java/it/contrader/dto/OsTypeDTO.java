@@ -18,6 +18,7 @@ public class OsTypeDTO {
 		this.id_ostype = id_ostype;
 		this.name = name;
 		this.command = command;
+		
 	}
 
 	public int getId_ostype() {

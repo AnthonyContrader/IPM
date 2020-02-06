@@ -30,7 +30,7 @@ public class OsTypeDeleteView extends AbstractView{
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("id", id);
+		request.put("id_ostype", id);
 		request.put("mode", mode);
 		MainDispatcher.getInstance().callAction("OsType", "doControl", request);
 	}

@@ -8,7 +8,7 @@ import it.contrader.main.MainDispatcher;
 import it.contrader.service.OsTypeService;
 
 public class OsTypeController implements Controller {
-	private static String sub_pack = "osType.";
+	private static String sub_pack = "ostype.";
 	private OsTypeService osTypeService;
 	
 	public OsTypeController () { this.osTypeService=new OsTypeService();}
@@ -23,9 +23,9 @@ public class OsTypeController implements Controller {
 		
 		switch (mode) {
 		case "READ":
-			id = Integer.parseInt(request.get("id").toString());
+			id = Integer.parseInt(request.get("id_ostype").toString());
 			OsTypeDTO osTypeDTO = osTypeService.read(id);
-			request.put("osType", osTypeDTO);
+			request.put("ostype", osTypeDTO);
 			MainDispatcher.getInstance().callView(sub_pack + "OsTypeRead", request);
 			break;
 			
@@ -41,7 +41,7 @@ public class OsTypeController implements Controller {
 			break;
 			
 		case "DELETE":
-			id=Integer.parseInt(request.get("id").toString());
+			id=Integer.parseInt(request.get("id_ostype").toString());
 			osTypeService.delete(id);
 			request = new Request();
 			request.put("mode", "mode");
@@ -49,10 +49,11 @@ public class OsTypeController implements Controller {
 			break;
 			
 		case "UPDATE":
-			id=Integer.parseInt(request.get("id").toString());
+			id=Integer.parseInt(request.get("id_ostype").toString());
 			name=request.get("name").toString();
 			command=request.get("command").toString();
-			OsTypeDTO ostypetoupdate = new OsTypeDTO();
+			
+			OsTypeDTO ostypetoupdate = new OsTypeDTO(name, command);
 			ostypetoupdate.setId_ostype(id);
 			osTypeService.update(ostypetoupdate);
 			request=new Request();
@@ -61,8 +62,8 @@ public class OsTypeController implements Controller {
 			break;
 			
 		case "OSTYPELIST":
-			List<OsTypeDTO> osTypeDTOList = osTypeService.getAll();
-			request.put("osTypes", osTypeDTOList);
+			List<OsTypeDTO> osTypesDTO = osTypeService.getAll();
+			request.put("osTypes", osTypesDTO);
 			MainDispatcher.getInstance().callView("OsType", request);
 			break;
 
