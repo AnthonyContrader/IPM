@@ -46,7 +46,7 @@ public class CategoryController implements Controller
 				categoryService.delete(id_cat);
 				request = new Request();
 				request.put("mode", "mode");
-				MainDispatcher.getInstance().callView(sub_package + "UserDelete", request);
+				MainDispatcher.getInstance().callView(sub_package + "CategoryDelete", request);
 				break;
 				
 			case "UPDATE":
@@ -57,19 +57,19 @@ public class CategoryController implements Controller
 				categoryService.update(categorytoupdate);
 				request = new Request();
 				request.put("mode", "mode");
-				MainDispatcher.getInstance().callView(sub_package + "CategoryUpate", request);
+				MainDispatcher.getInstance().callView(sub_package + "CategoryUpdate", request);
 				break;
 				
 			case "CATEGORYLIST":
 				List<CategoryDTO> categoriesDTO = categoryService.getAll();
 				request.put("categories", categoriesDTO);
-				MainDispatcher.getInstance().callView("User", request);
+				MainDispatcher.getInstance().callView("Category", request);
 				break;
 				
 			case "GETCHOICE":
 				switch (choice.toUpperCase()) 
 				{
-					case "R":
+					case "L":
 						MainDispatcher.getInstance().callView(sub_package + "CategoryRead", null);
 						break;
 					
@@ -81,11 +81,11 @@ public class CategoryController implements Controller
 						MainDispatcher.getInstance().callView(sub_package + "CategoryUpdate", null);
 						break;
 						
-					case "D":
-						MainDispatcher.getInstance().callView(sub_package + "UserDelete", null);
+					case "C":
+						MainDispatcher.getInstance().callView(sub_package + "CategoryDelete", null);
 						break;
 						
-					case "L":
+					case "E":
 						MainDispatcher.getInstance().callView("Login", null);
 						break;
 						

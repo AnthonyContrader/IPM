@@ -21,7 +21,7 @@ public class CategoryInsertView extends AbstractView
 		if (request != null) 
 		{
 			System.out.println("SUCCESFULL INSERTION.\n");
-			MainDispatcher.getInstance().callView("User", null);
+			MainDispatcher.getInstance().callView("Category", null);
 		}
 	}
 	
