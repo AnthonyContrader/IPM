@@ -69,7 +69,7 @@ public class CategoryController implements Controller
 			case "GETCHOICE":
 				switch (choice.toUpperCase()) 
 				{
-					case "L":
+					case "R":
 						MainDispatcher.getInstance().callView(sub_package + "CategoryRead", null);
 						break;
 					
@@ -81,11 +81,11 @@ public class CategoryController implements Controller
 						MainDispatcher.getInstance().callView(sub_package + "CategoryUpdate", null);
 						break;
 						
-					case "C":
+					case "D":
 						MainDispatcher.getInstance().callView(sub_package + "UserDelete", null);
 						break;
 						
-					case "E":
+					case "L":
 						MainDispatcher.getInstance().callView("Login", null);
 						break;
 						
