@@ -1,4 +1,4 @@
-package it.contrader.model;import javax.print.attribute.standard.MediaSize.Other;
+package it.contrader.model;
 
 public class OsType {
 	

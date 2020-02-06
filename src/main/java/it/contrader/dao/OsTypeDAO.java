@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.OsType;
-import it.contrader.model.User;;
 
 
 public class OsTypeDAO {
@@ -20,7 +19,7 @@ public class OsTypeDAO {
 	}
 	
 	public List <OsType> getAll() {
-		List<OsType> osTypesList = new ArrayList(); 
+		List<OsType> osTypesList = new ArrayList<>(); 
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
