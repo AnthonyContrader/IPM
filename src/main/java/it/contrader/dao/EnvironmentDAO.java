@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import it.contrader.main.ConnectionSingleton;
 import it.contrader.model.Environment;
-import it.contrader.model.User;
 
 // Private query that cannot modified out from this class
 
@@ -30,7 +29,7 @@ public class EnvironmentDAO {
 			while (resultSet.next()) {
 				int id_env = resultSet.getInt("id_env");
 				String name = resultSet.getString("name");
-				String description = resultSet.getString("descripton");
+				String description = resultSet.getString("description");
 				environment = new Environment (name, description);
 				environment.setId_env(id_env);
 				envList.add(environment);
@@ -76,7 +75,6 @@ public class EnvironmentDAO {
 		Connection connection = ConnectionSingleton.getInstance();
 		if (envToUpdate.getId_env() == 0)
 			return false;
-
 		Environment envRead = read(envToUpdate.getId_env());
 		if (!envRead.equals(envToUpdate)) {
 			try {
@@ -89,7 +87,8 @@ public class EnvironmentDAO {
 				}
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, envToUpdate.getName());
-				preparedStatement.setString(2, envToUpdate.getDescription());				preparedStatement.setInt(4, envToUpdate.getId_env());
+				preparedStatement.setString(2, envToUpdate.getDescription());	
+				preparedStatement.setInt(3, envToUpdate.getId_env());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

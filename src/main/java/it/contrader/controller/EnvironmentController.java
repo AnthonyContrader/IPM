@@ -57,22 +57,22 @@ public class EnvironmentController implements Controller {
 		case "ENVIRONMENTLIST":
 			List<EnvironmentDTO> environmentsDTO = environmentService.getAll();
 			//Impacchetta la request con la lista degli user
-			request.put("environments", environmentsDTO);
+			request.put("environment", environmentsDTO);
 			MainDispatcher.getInstance().callView("Environment", request);
 			break;
 		case "GETCHOICE":		
 		//toUpperCase() mette in maiuscolo la scelta
-			switch (choice.toUpperCase()) {
-				case "L":
-					MainDispatcher.getInstance().callView(sub_package + "EnvironmentRead", null);
-					break;		
-				case "I":
+			switch (choice.toUpperCase()) {		
+				case "C":
 					MainDispatcher.getInstance().callView(sub_package + "EnvironmentInsert", null);
-					break;		
-				case "M":
+					break;	
+				case "R":
+					MainDispatcher.getInstance().callView(sub_package + "EnvironmentRead", null);
+					break;
+				case "U":
 					MainDispatcher.getInstance().callView(sub_package + "EnvironmentUpdate", null);
 					break;		
-				case "C":
+				case "D":
 					MainDispatcher.getInstance().callView(sub_package + "EnvironmentDelete", null);
 					break;		
 				case "E":

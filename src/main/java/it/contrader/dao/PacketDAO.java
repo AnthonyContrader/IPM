@@ -65,14 +65,17 @@ public class PacketDAO {
 			preparedStatement.setInt(1, packetToRead);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			resultSet.next();
-
+			
+			String name = resultSet.getString("name");
+			String desc = resultSet.getString("description");
+			
 			Packet packet = new Packet(
-					resultSet.getString("name"),
-					resultSet.getString("description")
+					name,
+					desc
 					);
 			
 			packet.setId_pack( resultSet.getInt("id_pack") );
-			
+						
 			return packet;
 		} catch (SQLException e) {
 			return null;
