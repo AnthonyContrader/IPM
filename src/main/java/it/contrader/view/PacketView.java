@@ -18,8 +18,8 @@ public class PacketView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			System.out.println("\n------------- Gestione pacchetti -------------\n");
-			System.out.println("ID\nName\tDescription");
+			System.out.println("\n------------- Packet Managment -------------\n");
+			System.out.println("ID\tName\t\tDescription");
 			System.out.println("----------------------------------------------------\n");
 		
 			@SuppressWarnings("unchecked")
@@ -32,7 +32,7 @@ public class PacketView extends AbstractView {
 	
 	@Override
 	public void showOptions() {
-		System.out.println("\t Scegli l'operazione da eseguire \t\n");
+		System.out.println("\t Choose what to do \t\n");
 		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
 
 		this.choice = getInput();
