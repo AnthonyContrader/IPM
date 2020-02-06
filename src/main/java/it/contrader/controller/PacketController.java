@@ -72,6 +72,16 @@ public class PacketController implements Controller {
 			MainDispatcher.getInstance().callView(sub_package + "PacketUpdate", request);
 			break;
 			
+		case "SEARCH":
+			name = request.get("name").toString();
+			PacketDTO p_packetDTO = this.packetService.search(name);
+			
+			if (p_packetDTO.getName() != null)
+				request.put("packet", p_packetDTO);			
+			
+			MainDispatcher.getInstance().callView(sub_package + "PacketSearch", request);
+			break;
+			
 		case "PACKETLIST":
 			List<PacketDTO> packetsDTO = packetService.getAll();
 			request.put("packets", packetsDTO);
@@ -95,6 +105,10 @@ public class PacketController implements Controller {
 				
 			case "D":
 				MainDispatcher.getInstance().callView(sub_package + "PacketDelete", null);
+				break;
+			
+			case "F":
+				MainDispatcher.getInstance().callView(sub_package + "PacketSearch", null);
 				break;
 				
 			case "E":

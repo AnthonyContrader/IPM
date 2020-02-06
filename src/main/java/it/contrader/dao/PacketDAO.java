@@ -13,6 +13,7 @@ public class PacketDAO {
 	private final String QUERY_READ = "SELECT * FROM packet WHERE id_pack=?";
 	private final String QUERY_UPDATE = "UPDATE packet SET name=?, description=? WHERE id_pack=?";
 	private final String QUERY_DELETE = "DELETE FROM packet WHERE id_pack=?";
+	private final String QUERY_SEARCH = "SELECT * FROM packet WHERE name=?";
 
 	public PacketDAO() {
 
@@ -134,6 +135,35 @@ public class PacketDAO {
 		}
 		
 		return false;
+	}
+	
+	public Packet search(String packetNameToFind) {
+		Connection connection = ConnectionSingleton.getInstance();
+		Packet packet = new Packet();
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_SEARCH);
+			
+			preparedStatement.setString(1, packetNameToFind);
+			
+			ResultSet result = preparedStatement.executeQuery();
+			
+			if ( result.next() )
+			{
+				packet.setId_pack(result.getInt("id_pack"));
+				packet.setName(result.getString("name"));
+				packet.setDescription(result.getString("description"));
+				
+				System.out.println("----- Package Found! -----\n");
+				System.out.println( packet );
+			}
+							
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return packet;
+
 	}
 
 

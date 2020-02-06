@@ -33,7 +33,7 @@ public class PacketView extends AbstractView {
 	@Override
 	public void showOptions() {
 		System.out.println("\t Choose what to do \t\n");
-		System.out.println("[C]reate [R]read [U]pdate [D]elete [B]ack [E]xit");
+		System.out.println("[C]reate [R]read [U]pdate [D]elete [F]ind [B]ack [E]xit");
 
 		this.choice = getInput();
 	}

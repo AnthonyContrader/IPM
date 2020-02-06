@@ -51,4 +51,8 @@ public class PacketService {
 	public boolean delete(int packetIdToDelete) {
 		return this.packetDAO.delete( packetIdToDelete );
 	}
+	
+	public PacketDTO search(String packetToFindName) {
+		return this.packetConverter.toDTO( packetDAO.search( packetToFindName ) );
+	}
 }
