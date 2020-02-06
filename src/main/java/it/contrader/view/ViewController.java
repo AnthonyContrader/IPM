@@ -20,7 +20,7 @@ public class ViewController extends AbstractView
 	{
 		if (request != null) 
 		{
-			System.out.println("\n------------------- Gestione categorie ----------------\n");
+			System.out.println("\n------------------- Categories management ----------------\n");
 			System.out.println("ID_cat\tName");
 			System.out.println("----------------------------------------------------\n");
 			
