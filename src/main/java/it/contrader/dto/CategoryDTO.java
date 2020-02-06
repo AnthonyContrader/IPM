@@ -2,9 +2,11 @@ package it.contrader.dto;
 
 public class CategoryDTO
 {
+	/* VARIABLES DECLARATION */
 	private int id_cat;
 	private String name;
 	
+	/* CONSTRUCTORS */
 	public CategoryDTO () 
 	{
 		
@@ -21,6 +23,7 @@ public class CategoryDTO
 		this.name = name;
 	}
 	
+	/* GETTER AND SETTER METHODS */
 	public int getIdCat () 
 	{
 		return this.id_cat;

@@ -18,6 +18,7 @@ public class Packet {
 	// Half constructor
 	public Packet (String newName, String newDescription) {
 		this.name = newName;
+		this.description = newDescription;
 	}
 
 	// Full constructor

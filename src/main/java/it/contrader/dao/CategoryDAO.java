@@ -9,11 +9,11 @@ import it.contrader.model.Category;
 public class CategoryDAO {
 	
 	/* QUERIES DECLARATION */
-	private final String QUERY_ALL = "SELECT * FROM category";
+	private final String QUERY_ALL = "SELECT * FROM category ORDER BY id_cat";
 	private final String QUERY_CREATE = "INSERT INTO category (name) values (?)";
-	private final String QUERY_READ = "SELECT * FROM category WHERE id = ?";
-	private final String QUERY_UPDATE = "UPDATE category SET name = ? WHERE id = ?";
-	private final String QUERY_DELETE = "DELETE FROM category WHERE id = ?";
+	private final String QUERY_READ = "SELECT * FROM category WHERE id_cat = ?";
+	private final String QUERY_UPDATE = "UPDATE category SET name = ? WHERE id_cat = ?";
+	private final String QUERY_DELETE = "DELETE FROM category WHERE id_cat = ?";
 	
 	/* CONSTRUCTORS */
 	public CategoryDAO() 
@@ -34,7 +34,7 @@ public class CategoryDAO {
 			
 			while (resultSet.next()) 
 			{
-				int id_cat = resultSet.getInt("id");
+				int id_cat = resultSet.getInt("id_cat");
 				String name = resultSet.getString("name");
 				category = new Category(name);
 				category.setIdCat(id_cat);
@@ -79,7 +79,7 @@ public class CategoryDAO {
 			
 			name = resultSet.getString("name");
 			Category category = new Category(name);
-			category.setIdCat(resultSet.getInt("id"));
+			category.setIdCat(resultSet.getInt("id_cat"));
 			
 			return category;
 		}
@@ -110,7 +110,7 @@ public class CategoryDAO {
 				
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, categoryToUpdate.getName());
-				
+				preparedStatement.setInt(2, categoryToUpdate.getIdCat());
 				int a = preparedStatement.executeUpdate();
 				
 				if (a > 0)
@@ -128,6 +128,7 @@ public class CategoryDAO {
 		return false;
 	}
 	
+	/* METHOD TO DELETE */
 	public boolean delete(int id_cat) 
 	{
 		Connection connection = ConnectionSingleton.getInstance();
