@@ -6,6 +6,8 @@ import it.contrader.dto.PacketDTO;
 import it.contrader.main.MainDispatcher;
 import it.contrader.service.PacketService;
 
+
+
 public class PacketController implements Controller {
 	private static String sub_package = "packet.";
 	
@@ -79,19 +81,19 @@ public class PacketController implements Controller {
 		case "GETCHOICE":
 			switch (choice.toUpperCase()) {
 			
-			case "L":
+			case "R":
 				MainDispatcher.getInstance().callView(sub_package + "PacketRead", null);
 				break;
 				
-			case "I":
+			case "C":
 				MainDispatcher.getInstance().callView(sub_package + "PacketInsert", null);
 				break;
 				
-			case "M":
+			case "U":
 				MainDispatcher.getInstance().callView(sub_package + "PacketUpdate", null);
 				break;
 				
-			case "C":
+			case "D":
 				MainDispatcher.getInstance().callView(sub_package + "PacketDelete", null);
 				break;
 				

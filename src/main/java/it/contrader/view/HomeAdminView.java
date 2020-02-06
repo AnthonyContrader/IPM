@@ -23,7 +23,7 @@ public class HomeAdminView extends AbstractView {
 	 */
     public void showResults(Request request) {
     	if(request!=null) {
-    	System.out.println("\n Benvenuto in SAMPLE PROJECT "+request.get("username").toString() + "\n");
+    	System.out.println("\n Welcome to SAMPLE PROJECT "+request.get("username").toString() + "\n");
     	}
     }
 
@@ -32,9 +32,9 @@ public class HomeAdminView extends AbstractView {
      * Chiede all'utente di effettuare una scelta (da console)
      */
     public void showOptions() {
-        System.out.println("-------------MENU------------\n");
-        System.out.println(" Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti [P]acchetti [EN]vironment [C]ategory [O]S_type [E]sci");
+        System.out.println("------------- MAIN MENU------------\n");
+        System.out.println("Choose what you want to handle:");
+        System.out.println("[U]sers [P]ackets [EN]vironment [C]ategory [O]S_type [E]xit");
         //Il metodo che salva l'input nella stringa choice.
         //getInput() è definito in AbstractView.
         choice = this.getInput();
