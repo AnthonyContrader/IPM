@@ -1,5 +1,5 @@
 /**
- * Manage a Business Owner view
+w * Manage a Business Owner view
  */
 
 package it.contrader.view;
@@ -34,7 +34,7 @@ public class HomeAdminView extends AbstractView {
     public void showOptions() {
         System.out.println("-------------MENU------------\n");
         System.out.println(" Seleziona cosa vuoi gestire:");
-        System.out.println("[U]tenti  [E]sci");
+        System.out.println("[U]tenti [P]acchetti [EN]vironment [C]ategory [O]S_type [E]sci");
         //Il metodo che salva l'input nella stringa choice.
         //getInput() è definito in AbstractView.
         choice = this.getInput();
@@ -56,6 +56,27 @@ public class HomeAdminView extends AbstractView {
         case "e":
         	MainDispatcher.getInstance().callAction("Login", "doControl", null);
         	break;
+        	
+        case "p":
+        	this.request.put("mode", "PACKETLIST");
+        	MainDispatcher.getInstance().callAction("Packet", "doControl", request);
+        	break;
+        	
+        case "en":
+        	this.request.put("mode", "ENVIRONMENTLIST");
+        	MainDispatcher.getInstance().callAction("Environment", "doControl", request);
+        	break;
+        	
+        case "c":
+        	this.request.put("mode", "CATEGORYLIST");
+        	MainDispatcher.getInstance().callAction("Category", "doControl", request);
+        	break;
+        	
+        case "o":
+        	this.request.put("mode", "OSTYPELIST");
+        	MainDispatcher.getInstance().callAction("OsType", "doControl", request);
+        	break;
+        	
         default:
         	
             request.put("choice", choice);
