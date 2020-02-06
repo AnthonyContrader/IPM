@@ -128,7 +128,7 @@ public class UserController implements Controller {
 				MainDispatcher.getInstance().callView(sub_package + "UserUpdate", null);
 				break;
 				
-			case "C":
+			case "D":
 				MainDispatcher.getInstance().callView(sub_package + "UserDelete", null);
 				break;
 				
