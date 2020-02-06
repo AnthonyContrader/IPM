@@ -54,6 +54,6 @@ public class EnvironmentDTO {
 	
 	@Override
 	public String toString() {
-		return id_env + "/t" + name + "/t/t" + description;
+		return id_env + "\t" + name + "\t\t" + description;
 	}
 }
