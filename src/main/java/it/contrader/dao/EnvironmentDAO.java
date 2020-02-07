@@ -20,7 +20,7 @@ public class EnvironmentDAO {
 	}
 	
 	public List<Environment> getAll (){
-		List<Environment> envList = new ArrayList();
+		List<Environment> envList = new ArrayList<>();
 		Connection connection = ConnectionSingleton.getInstance();
 		try {
 			Statement statement = connection.createStatement();
