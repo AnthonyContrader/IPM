@@ -26,14 +26,15 @@ public class PacketView extends AbstractView {
 			List<PacketDTO> packets = (List<PacketDTO>) request.get("packets");
 			for (PacketDTO p : packets)
 				System.out.println(p);
+			
 			System.out.println();
 		}
 	}
 	
 	@Override
-	public void showOptions() {
+	public void showOptions() {		
 		System.out.println("\t Choose what to do \t\n");
-		System.out.println("[C]reate [R]read [U]pdate [D]elete [F]ind [B]ack [E]xit");
+		System.out.println("[C]reate [R]ead [U]pdate [D]elete [F]ind [B]ack [E]xit");
 
 		this.choice = getInput();
 	}
