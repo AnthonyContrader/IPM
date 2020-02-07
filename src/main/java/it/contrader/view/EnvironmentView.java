@@ -12,6 +12,7 @@ import it.contrader.main.MainDispatcher;
  *
  * Si osservi che alla View arrivano solo oggetti di tipo DTO!
  */
+
 public class EnvironmentView extends AbstractView {
 
 	private Request request;
@@ -22,7 +23,7 @@ public class EnvironmentView extends AbstractView {
 	}
 
 	/**
-	 * Mostra la lista utenti
+	 * Mostra la lista degli Environment
 	 */
 	@Override
 	public void showResults(Request request) {
@@ -40,7 +41,7 @@ public class EnvironmentView extends AbstractView {
 	}
 
 	/**
-	 * Chiede all'utente un input (lettera da tastiera) per la choice (vedi UserController). 
+	 * Chiede all'utente un input (lettera da tastiera) per la choice (vedi EnvironmentController). 
 	 * Mette la modalità GETCHOICE nella mode.
 	 */
 	@Override
@@ -52,7 +53,7 @@ public class EnvironmentView extends AbstractView {
 	}
 	
 	/**
-	 * Impacchetta la request e la manda allo UserController.
+	 * Impacchetta la request e la manda all'EnvironmentController.
 	 */
 	@Override
 	public void submit() {

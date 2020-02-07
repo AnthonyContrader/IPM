@@ -6,7 +6,7 @@ public class Environment {
 	private String name;
 	private String description;
 	
-	// Construtors definition, empty constructor, with ID constructr and without ID constructor
+	// Constructors definition, empty constructor, with ID constructor and without ID constructor
 	
 	public Environment () {
 		 

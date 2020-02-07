@@ -46,7 +46,8 @@ public class EnvironmentDAO {
 		try {	
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, envToInsert.getName());
-			preparedStatement.setString(2, envToInsert.getDescription());			preparedStatement.execute();
+			preparedStatement.setString(2, envToInsert.getDescription());	
+			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
 			return false;
