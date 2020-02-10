@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import it.contrader.dto.PacketDTO;
-import it.contrader.dto.UserDTO;
 import it.contrader.service.Service;
 import it.contrader.service.PacketService;
 
@@ -16,7 +15,6 @@ public class PacketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public PacketServlet() {
-		
 	}
 	
 	public void updateList(HttpServletRequest request) {
