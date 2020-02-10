@@ -89,6 +89,22 @@
 	  <button type="submit" >Insert</button>
 	</form>
 	
+	<form id="floatright" action="PacketServlet?mode=find" method="post">
+	
+	  <div class="row">
+	    <div class="col-25">
+	      <label for="packet">Find packet</label>
+	    </div>
+	    <div class="col-75">
+	      <input type="text" id="packet" name="packetFind" placeholder="Insert packet name to search for. . .">
+	    </div>
+	  </div>
+	  	  
+	  <button type="submit" >Find</button>
+	</form>
+	
+	
+	
 	</div>
 	<br>
 	<%@ include file="../css/footer.jsp" %>

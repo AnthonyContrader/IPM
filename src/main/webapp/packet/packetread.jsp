@@ -22,7 +22,6 @@
 		<div class="main">
 		<%PacketDTO p = (PacketDTO) request.getAttribute("dto");%>
 		
-		
 		<table>
 			<tr> 
 				<th>Name</th>

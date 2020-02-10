@@ -13,6 +13,7 @@ public class PacketDAO implements DAO<Packet> {
 	private final String QUERY_READ = "SELECT * FROM packet WHERE id_pack=?";
 	private final String QUERY_UPDATE = "UPDATE packet SET name=?, description=? WHERE id_pack=?";
 	private final String QUERY_DELETE = "DELETE FROM packet WHERE id_pack=?";
+	private final String QUERY_FIND = "SELECT * FROM packet WHERE name=?";
 	
 	// Empty Constructor
 	public PacketDAO() {}
@@ -137,5 +138,28 @@ public class PacketDAO implements DAO<Packet> {
 		}
 		
 		return packetsList;
+	}
+	
+	public Packet findByName(String packetToFind) {
+		Connection connection = ConnectionSingleton.getInstance();
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_FIND);
+			preparedStatement.setString(1, packetToFind);
+			
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while ( resultSet.next() )
+				return new Packet(
+					resultSet.getInt("id_pack"),
+					resultSet.getString("name"),
+					resultSet.getString("description")
+					);
+			
+			
+		} catch (SQLException e) {
+		}
+		
+		return null;
 	}
 }

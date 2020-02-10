@@ -8,19 +8,19 @@ import it.contrader.model.Packet;
 
 public class PacketConverter implements Converter<Packet, PacketDTO> {
 	
-	public PacketDTO toDTO(Packet packetToConvert) {
+	public PacketDTO toDTO(Packet packet) {
 		return new PacketDTO(
-					packetToConvert.getId_pack(),
-					packetToConvert.getName(),
-					packetToConvert.getDescription()
+					packet.getId_pack(),
+					packet.getName(),
+					packet.getDescription()
 					);
 	}
 	
-	public Packet toEntity(PacketDTO packetToConvert) {
+	public Packet toEntity(PacketDTO packetDTO) {
 		return new Packet (
-				packetToConvert.getId_pack(),
-				packetToConvert.getName(),
-				packetToConvert.getDescription()
+				packetDTO.getId_pack(),
+				packetDTO.getName(),
+				packetDTO.getDescription()
 				);
 	}
 	

@@ -20,6 +20,7 @@ public class PacketServlet extends HttpServlet {
 	public void updateList(HttpServletRequest request) {
 		Service<PacketDTO> service = new PacketService();
 		List<PacketDTO> packetListDTO = service.getAll();
+		PacketService serviceFind = new PacketService();
 		
 		request.setAttribute("list", packetListDTO);
 	}
@@ -88,8 +89,21 @@ public class PacketServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/packet/packetmanager.jsp").forward(request, response);
 			
 			break;
+			
+		case "FIND":
+			String packetFinder = request.getParameter("packetFind");
+			PacketService serviceFind = new PacketService();
+			
+			dto = serviceFind.findByName(packetFinder);
+			
+			PacketDTO newDto = serviceFind.read( dto.getId_pack() );
+			
+			request.setAttribute("dto", newDto);
+			
+			this.getServletContext().getRequestDispatcher("/packet/packetread.jsp").forward( request, response );
+			
+			break;
 		}
-	}
-	
+	}	
 
 }
