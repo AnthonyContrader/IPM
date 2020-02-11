@@ -42,4 +42,14 @@
     <servlet-name>PacketServlet</servlet-name>
     <url-pattern>/PacketServlet</url-pattern>
   </servlet-mapping>
+      <servlet>
+    <description></description>
+    <display-name>EnvironmentServlet</display-name>
+    <servlet-name>EnvironmentServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.EnvironmentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EnvironmentServlet</servlet-name>
+    <url-pattern>/EnvironmentServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
