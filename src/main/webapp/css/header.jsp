@@ -11,7 +11,7 @@
 <div class="header">SAMPLE Project
 </div>
 <div class="navbar">
-  <a class="active" href="homeadmin.jsp">Home</a>
+  <a href="homeadmin.jsp">Home</a>
   <a href="UserServlet?mode=userlist">Users</a>
   <a href="EnvironmentServlet?mode=environmentlist">Environment</a>
   <a href="PacketServlet?mode=packetlist">Packet</a>

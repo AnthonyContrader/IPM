@@ -39,6 +39,9 @@ div.text{
 	clear:both;
 	margin-top: 5%;
 	margin-bottom: 1%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
 }
 
 /* headers */
