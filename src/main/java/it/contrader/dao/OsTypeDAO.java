@@ -1,6 +1,5 @@
 package it.contrader.dao;
 
-import java.rmi.activation.ActivationGroupDesc.CommandEnvironment;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
