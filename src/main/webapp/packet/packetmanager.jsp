@@ -7,14 +7,14 @@
 
 	<head>
 		<meta charset="ISO-8859-1">
-		<link href="../css/packet/alessiostyle.css" rel="stylesheet">
+		<link href="../css/vittoriostyle.css" rel="stylesheet">
 		<title>Packet Manager</title>
 	</head>
 
 <body>
-	<%@ include file="../css/packet/pheader.jsp" %>
+	<%@ include file="../css/header.jsp" %>
 	
-	<div class="packetnavbar">
+	<div class="navbar">
 	  <a href="homeadmin.jsp">Home</a>
 	  <a href="UserServlet?mode=userlist">Users</a>
 	  <a class="active" href="PacketServlet?mode=packetlist">Packets</a>
@@ -65,16 +65,20 @@
 		</table>
 	
 	
-	<div class="crudOperationsPacket">
-	<form action="PacketServlet?mode=insert" method="post">
-	
+	<form id="floatright" action="PacketServlet?mode=insert" method="post">
 	  <div class="row">
+	  	<div class="col-25">
+	  		<label for="packet">Name</label>
+	  	</div>
 	    <div class="col-75">
 	      <input type="text" id="packet" name="packetName" placeholder="Insert packet name . . .">
 	    </div>
 	  </div>
 	  
 	  <div class="row">
+	  	 <div class="col-25">
+	  		<label for="packet">Description</label>
+	  	</div>
 	    <div class="col-75">
 	      <input type="text" id="desc" name="packetDescription" placeholder="Insert description . . ."> 
 	    </div>
@@ -96,9 +100,7 @@
 	</div>
 	
 	
-	
-	</div>
 	<br>
-	<%@ include file="../css/packet/pfooter.jsp" %>
+	<%@ include file="../css/footer.jsp" %>
 	</body>
 </html>
