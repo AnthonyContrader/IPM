@@ -75,8 +75,8 @@ public class OsTypeServlet extends HttpServlet {
 			break;
 			
 		case "UPDATE":
-			name=request.getParameter("name");
-			comm=request.getParameter("comm");
+			name=request.getParameter("ostypeName");
+			comm=request.getParameter("ostypeCommand");
 			id=Integer.parseInt(request.getParameter("id"));
 			dto=new OsTypeDTO(id, name, comm);
 			ans=service.update(dto);
