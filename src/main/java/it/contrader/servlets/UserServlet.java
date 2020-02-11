@@ -49,8 +49,7 @@ public class UserServlet extends HttpServlet {
 			request.setAttribute("dto", dto);
 			
 			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/user/readuser.jsp").forward(request, response);
-				
+				 getServletContext().getRequestDispatcher("/user/readuser.jsp").forward(request, response);	
 			}
 			
 			else getServletContext().getRequestDispatcher("/user/updateuser.jsp").forward(request, response);
