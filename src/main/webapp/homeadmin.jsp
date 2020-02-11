@@ -18,6 +18,7 @@
   <a href="EnvironmentServlet?mode=environmentlist">Environment</a>
   <a href="PacketServlet?mode=packetlist">Packet</a>
   <a href="CategoryServlet?mode=categorylist">Category</a>
+  <a href="OsTypeServlet?mode=ostypelist">OS Type</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 

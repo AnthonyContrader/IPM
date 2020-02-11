@@ -62,4 +62,14 @@
     <servlet-name>CategoryServlet</servlet-name>
     <url-pattern>/CategoryServlet</url-pattern>
   </servlet-mapping>
+          <servlet>
+    <description></description>
+    <display-name>OsTypeServlet</display-name>
+    <servlet-name>OsTypeServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.OsTypeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OsTypeServlet</servlet-name>
+    <url-pattern>/OsTypeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
