@@ -7,14 +7,14 @@
 
 	<head>
 		<meta charset="ISO-8859-1">
-		<link href="../css/vittoriostyle.css" rel="stylesheet">
+		<link href="../css/packet/alessiostyle.css" rel="stylesheet">
 		<title>Packet Manager</title>
 	</head>
 
 <body>
-	<%@ include file="../css/header.jsp" %>
+	<%@ include file="../css/packet/pheader.jsp" %>
 	
-	<div class="navbar">
+	<div class="packetnavbar">
 	  <a href="homeadmin.jsp">Home</a>
 	  <a href="UserServlet?mode=userlist">Users</a>
 	  <a class="active" href="PacketServlet?mode=packetlist">Packets</a>
@@ -65,22 +65,16 @@
 		</table>
 	
 	
-	
-	<form id="floatright" action="PacketServlet?mode=insert" method="post">
+	<div class="crudOperationsPacket">
+	<form action="PacketServlet?mode=insert" method="post">
 	
 	  <div class="row">
-	    <div class="col-25">
-	      <label for="packet">Name</label>
-	    </div>
 	    <div class="col-75">
 	      <input type="text" id="packet" name="packetName" placeholder="Insert packet name . . .">
 	    </div>
 	  </div>
 	  
 	  <div class="row">
-	    <div class="col-25">
-	     <label for="desc">Description</label>
-	    </div>
 	    <div class="col-75">
 	      <input type="text" id="desc" name="packetDescription" placeholder="Insert description . . ."> 
 	    </div>
@@ -92,9 +86,6 @@
 	<form id="floatright" action="PacketServlet?mode=find" method="post">
 	
 	  <div class="row">
-	    <div class="col-25">
-	      <label for="packet">Find packet</label>
-	    </div>
 	    <div class="col-75">
 	      <input type="text" id="packet" name="packetFind" placeholder="Insert packet name to search for. . .">
 	    </div>
@@ -102,11 +93,12 @@
 	  	  
 	  <button type="submit" >Find</button>
 	</form>
+	</div>
 	
 	
 	
 	</div>
 	<br>
-	<%@ include file="../css/footer.jsp" %>
+	<%@ include file="../css/packet/pfooter.jsp" %>
 	</body>
 </html>
