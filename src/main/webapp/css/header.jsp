@@ -10,7 +10,15 @@
 
 <div class="header">SAMPLE Project
 </div>
-
+<div class="navbar">
+  <a class="active" href="homeadmin.jsp">Home</a>
+  <a href="UserServlet?mode=userlist">Users</a>
+  <a href="EnvironmentServlet?mode=environmentlist">Environment</a>
+  <a href="PacketServlet?mode=packetlist">Packet</a>
+  <a href="CategoryServlet?mode=categorylist">Category</a>
+  <a href="OsTypeServlet?mode=ostypelist">OS Type</a>
+  <a href="LogoutServlet" id="logout">Logout</a>
+</div>
 
 
 </body>
