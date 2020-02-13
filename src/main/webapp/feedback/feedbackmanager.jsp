@@ -69,9 +69,18 @@
 						</label>
 					</div>
 					
-					<div class="col-75">
+			<!-- 	<div class="col-75">
 						<input type="text" id="vote" name="vote" placeholder="Insert vote">
 					</div>
+				</div>
+				-->
+				
+				<div class="col-75">
+					<select name="vote">
+						<% for (int i=1; i<6; i++) { %>
+						<option><%=i %></option>
+						<% } %>
+					</select>
 				</div>
 				
 				<div class="row">
