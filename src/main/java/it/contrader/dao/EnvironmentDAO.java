@@ -11,7 +11,7 @@ public class EnvironmentDAO implements DAO<Environment> {
 	private final String QUERY_ALL = "SELECT * FROM environment";
 	private final String QUERY_CREATE = "INSERT INTO environment (name, description, packetkey) VALUES (?,?, ?)";
 	private final String QUERY_READ = "SELECT * FROM environment WHERE id_env=?";
-	private final String QUERY_UPDATE = "UPDATE environment SET name=?, description=?, packetkey=? WHERE id_env=?";
+	private final String QUERY_UPDATE = "UPDATE environment SET name=?, description=? WHERE id_env=?";
 	private final String QUERY_DELETE = "DELETE FROM environment WHERE id_env=?";
 	// Empty Constructor
 	public EnvironmentDAO() {}
@@ -75,8 +75,8 @@ public class EnvironmentDAO implements DAO<Environment> {
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, environmentToUpdate.getName() );
 				preparedStatement.setString(2, environmentToUpdate.getDescription() );
-				preparedStatement.setString(3, environmentToUpdate.getPacketKey() );
-				preparedStatement.setInt(4, environmentToUpdate.getId_env() );
+				//preparedStatement.setString(3, environmentToUpdate.getPacketKey() );
+				preparedStatement.setInt(3, environmentToUpdate.getId_env() );
 				
 				int updateResult = preparedStatement.executeUpdate();
 				

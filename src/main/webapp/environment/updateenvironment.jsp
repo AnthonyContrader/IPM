@@ -16,13 +16,13 @@
 <%EnvironmentDTO u = (EnvironmentDTO) request.getAttribute("dto");%>
 
 
-<form id="floatleft" action="EnvironmentServlet?mode=update&id=<%=u.getId()%>" method="post">
+<form id="floatleft" action="EnvironmentServlet?mode=update&id=<%=u.getId_env()%>" method="post">
   <div class="row">
     <div class="col-25">
-      <label for="user">Name</label>
+      <label for="environment">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="user" name="name" value=<%=u.getName()%>>
+      <input type="text" id="environment" name="environmentName" value=<%=u.getName()%>>
     </div>
   </div>
   <div class="row">
@@ -31,7 +31,7 @@
     </div>
     <div class="col-75">
       <input
-			type="text" id="pass" name="description" value=<%=u.getDescription()%>> 
+			type="text" id="description" name="environmentDescription" value=<%=u.getDescription()%>> 
     </div>
   </div>
   <div class="row">

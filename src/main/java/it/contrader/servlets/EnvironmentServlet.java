@@ -86,7 +86,7 @@ public class EnvironmentServlet extends HttpServlet {
 			answer = service.update( dto );
 			
 			updateList(request);
-			getServletContext().getRequestDispatcher("/packet/packetmanager.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/environment/environmentmanager.jsp").forward(request, response);
 			
 			break;
 		

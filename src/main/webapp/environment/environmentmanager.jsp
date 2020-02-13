@@ -44,7 +44,7 @@
 				<td><%=p.getPacketKey()%></td>
 				
 				<td>
-				<a href=PacketServlet?mode=read&update=true&id=<%=p.getId_env()%>>
+				<a href=EnvironmentServlet?mode=read&update=true&id=<%=p.getId_env()%>>
 					Edit
 				</a>
 				</td>
@@ -85,7 +85,8 @@
 	  	 <div class="col-25">
 	  		<label for="environment">Packet</label>
 	  	</div>
-		<select id="type" name="environmentPacket">
+		<select id="type" name="environmentPacket" required>
+			<option value="" disabled selected>Choose your option</option>
 			<%
 				for (PacketDTO o : listp) {
 			%>
