@@ -13,7 +13,9 @@ import it.contrader.service.PacketService;
 import it.contrader.dto.CategoryDTO;
 import it.contrader.service.CategoryService;
 import it.contrader.dto.EnvironmentDTO;
-import it.contrader.service.EnvironmentService;;
+import it.contrader.dto.OsTypeDTO;
+import it.contrader.service.EnvironmentService;
+import it.contrader.service.OsTypeService;;
 
 
 public class EnvironmentServlet extends HttpServlet {
@@ -59,7 +61,15 @@ public class EnvironmentServlet extends HttpServlet {
 			
 			dto = service.read(id_env);
 			
+			Service<PacketDTO> servicep = new PacketService();
+			Service<CategoryDTO> servicec = new CategoryService();
+
+			List<CategoryDTO> servicecListDTO = servicec.getAll();
+			List<PacketDTO> servicepListDTO = servicep.getAll();
+			
 			request.setAttribute("dto", dto);
+			request.setAttribute("listp", servicepListDTO);
+			request.setAttribute("listc", servicecListDTO);
 			
 			if ( request.getParameter("update") == null )
 				this.getServletContext().getRequestDispatcher("/environment/readenvironment.jsp").forward( request, response );
