@@ -21,10 +21,15 @@
 			<tr> 
 				<th>Name</th>
 				<th>Description</th>
+				<th>PacketKey</th>
+				<th>CategoryKey</th>
 			</tr>
 			<tr>
 				<td><%=e.getName()%></td>
 				<td> <%=e.getDescription()%></td>
+				<td> <%=e.getPacketKey()%></td>
+				<td> <%=e.getCategoryKey()%></td>
+			
 			</tr>	
 			
 		</table>

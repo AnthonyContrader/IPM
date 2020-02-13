@@ -9,7 +9,7 @@ import it.contrader.model.Environment;
 
 public class EnvironmentDAO implements DAO<Environment> {
 	private final String QUERY_ALL = "SELECT * FROM environment";
-	private final String QUERY_CREATE = "INSERT INTO environment (name, description, packetkey) VALUES (?,?, ?)";
+	private final String QUERY_CREATE = "INSERT INTO environment (name, description, packetkey, categorykey) VALUES (?,?,?,?)";
 	private final String QUERY_READ = "SELECT * FROM environment WHERE id_env=?";
 	private final String QUERY_UPDATE = "UPDATE environment SET name=?, description=? WHERE id_env=?";
 	private final String QUERY_DELETE = "DELETE FROM environment WHERE id_env=?";
@@ -23,6 +23,7 @@ public class EnvironmentDAO implements DAO<Environment> {
 			preparedStatement.setString(1, packetToInsert.getName() );
 			preparedStatement.setString(2, packetToInsert.getDescription() );
 			preparedStatement.setString(3, packetToInsert.getPacketKey() );
+			preparedStatement.setString(4, packetToInsert.getCategoryKey() );
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -42,7 +43,8 @@ public class EnvironmentDAO implements DAO<Environment> {
 			Environment readPacket = new Environment (
 					resultSet.getString("name"),
 					resultSet.getString("description"),
-					resultSet.getString("packetkey")
+					resultSet.getString("packetkey"),
+					resultSet.getString("categorykey")
 					);
 			
 			readPacket.setId_env(
@@ -127,7 +129,8 @@ public class EnvironmentDAO implements DAO<Environment> {
 				environment = new Environment (
 						resultSet.getString("name"),
 						resultSet.getString("description"),
-						resultSet.getString("packetkey")
+						resultSet.getString("packetkey"),
+						resultSet.getString("categorykey")
 						);
 				
 				environment.setId_env(environmentId);

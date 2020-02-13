@@ -8,20 +8,23 @@ public class EnvironmentDTO {
 	
 	// Foreign key
 	private String packetKey;
+	private String categoryKey;
 	
-	public EnvironmentDTO(int id_env, String name, String description, String packetKey) {
+	public EnvironmentDTO(int id_env, String name, String description, String packetKey, String categoryKey) {
 		super();
 		this.id_env = id_env;
 		this.name = name;
 		this.description = description;
 		this.packetKey = packetKey;
+		this.categoryKey = categoryKey;
 	}
 
-	public EnvironmentDTO(String name, String description, String packetKey) {
+	public EnvironmentDTO(String name, String description, String packetKey, String categoryKey) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.packetKey = packetKey;
+		this.categoryKey = categoryKey;
 	}
 
 	public EnvironmentDTO() {
@@ -43,7 +46,11 @@ public class EnvironmentDTO {
 	public String getPacketKey() {
 		return packetKey;
 	}
-
+	
+	public String getCategoryKey() {
+		return categoryKey;
+	}
+	
 	public void setId_env(int id_env) {
 		this.id_env = id_env;
 	}
@@ -59,12 +66,17 @@ public class EnvironmentDTO {
 	public void setPacketKey(String packetKey) {
 		this.packetKey = packetKey;
 	}
+	
+	public void setCategoryKey(String categoryKey) {
+		this.categoryKey = categoryKey;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Packet [id_env=" + id_env + ", name=" + name + ", description=" + description + ", packetKey=" + packetKey
-				+ ", getId_env()=" + getId_env() + ", getName()=" + getName() + ", getDescription()="
-				+ getDescription() + ", getpacketKey()=" + getPacketKey() + ", toString()=" + super.toString() + "]";
+				+ ", categoryKey=" + categoryKey + ", getId_env()=" + getId_env() + ", getName()=" + getName() + ", getDescription()="
+				+ getDescription() + ", getpacketKey()=" + getPacketKey() + ", getCategoryKey()=" + getCategoryKey() + ", toString()=" + super.toString() + "]";
 	}
 
 	

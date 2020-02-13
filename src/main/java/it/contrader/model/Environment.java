@@ -8,20 +8,23 @@ public class Environment {
 	
 	// Foreign key
 	private String packetKey;
+	private String categoryKey;
 	
-	public Environment(int id_env, String name, String description, String packetKey) {
+	public Environment(int id_env, String name, String description, String packetKey, String categoryKey) {
 		super();
 		this.id_env = id_env;
 		this.name = name;
 		this.description = description;
 		this.packetKey = packetKey;
+		this.categoryKey = categoryKey;
 	}
 
-	public Environment(String name, String description, String packetKey) {
+	public Environment(String name, String description, String packetKey, String categoryKey) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.packetKey = packetKey;
+		this.categoryKey = categoryKey;
 	}
 
 	public Environment() {
@@ -40,9 +43,6 @@ public class Environment {
 		return description;
 	}
 
-	public String getPacketKey() {
-		return packetKey;
-	}
 
 	public void setId_env(int id_env) {
 		this.id_env = id_env;
@@ -60,11 +60,23 @@ public class Environment {
 		this.packetKey = packetKey;
 	}
 
+	public String getPacketKey() {
+		return packetKey;
+	}
+	
+	public void setCategoryKey(String categoryKey) {
+		this.categoryKey = categoryKey;
+	}
+	
+	public String getCategoryKey() {
+		return categoryKey;
+	}
+	
 	@Override
 	public String toString() {
 		return "Packet [id_env=" + id_env + ", name=" + name + ", description=" + description + ", packetKey=" + packetKey
-				+ ", getId_env()=" + getId_env() + ", getName()=" + getName() + ", getDescription()="
-				+ getDescription() + ", getpacketKey()=" + getPacketKey() + ", toString()=" + super.toString() + "]";
+				+ ", categoryKey=" + categoryKey + ", getId_env()=" + getId_env() + ", getName()=" + getName() + ", getDescription()="
+				+ getDescription() + ", getpacketKey()=" + getPacketKey() + ", getCategoryKey()=" + getCategoryKey() + ", toString()=" + super.toString() + "]";
 	}
 
 	@Override
@@ -92,6 +104,11 @@ public class Environment {
 			if (other.packetKey != null)
 				return false;
 		} else if (!packetKey.equals(other.packetKey))
+			return false;
+		if (categoryKey == null) {
+			if (other.categoryKey != null)
+				return false;
+		} else if (!categoryKey.equals(other.categoryKey))
 			return false;
 		return true;
 	}
