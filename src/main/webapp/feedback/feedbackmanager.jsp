@@ -68,7 +68,7 @@
 							Vote
 						</label>
 					</div>
-					
+				</div>	
 			<!-- 	<div class="col-75">
 						<input type="text" id="vote" name="vote" placeholder="Insert vote">
 					</div>
