@@ -13,10 +13,7 @@ import it.contrader.service.PacketService;
 import it.contrader.dto.CategoryDTO;
 import it.contrader.service.CategoryService;
 import it.contrader.dto.EnvironmentDTO;
-import it.contrader.dto.OsTypeDTO;
 import it.contrader.service.EnvironmentService;
-import it.contrader.service.OsTypeService;;
-
 
 public class EnvironmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

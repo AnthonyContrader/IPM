@@ -30,10 +30,8 @@ public class EnvironmentConverter implements Converter<Environment, EnvironmentD
 	
 	public List<EnvironmentDTO> toDTOList(List<Environment> environmentList) {
 		List<EnvironmentDTO> environmentDTOList = new ArrayList<EnvironmentDTO>();
-		
 		for (Environment environment : environmentList)
 			environmentDTOList.add( this.toDTO( environment ) );
-		
 		return environmentDTOList;
 	}
 }
