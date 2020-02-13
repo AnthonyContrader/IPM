@@ -7,79 +7,98 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import it.contrader.dto.EnvironmentDTO;
+import it.contrader.dto.PacketDTO;
 import it.contrader.service.Service;
-import it.contrader.service.EnvironmentService;
+import it.contrader.service.PacketService;
+
+import it.contrader.dto.EnvironmentDTO;
+import it.contrader.service.EnvironmentService;;
 
 
 public class EnvironmentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	public EnvironmentServlet() {
 	}
 	
 	public void updateList(HttpServletRequest request) {
-		Service<EnvironmentDTO> service = new EnvironmentService();
-		List<EnvironmentDTO>listDTO = service.getAll();
-		request.setAttribute("list", listDTO);
+		Service<PacketDTO> service = new PacketService();
+		List<PacketDTO> packetListDTO = service.getAll();
+		
+		Service<EnvironmentDTO> serviceos = new EnvironmentService();
+		List<EnvironmentDTO> serviceListDTO = serviceos.getAll();
+		
+		request.setAttribute("list", packetListDTO);
+		request.setAttribute("listos", serviceListDTO);
 	}
-
+	
 	@Override
 	public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Service<EnvironmentDTO> service = new EnvironmentService();
 		String mode = request.getParameter("mode");
 		EnvironmentDTO dto;
-		int id;
-		boolean ans;
-
-		switch (mode.toUpperCase()) {
-
+		int id_env;
+		boolean answer;
+		
+		switch ( mode.toUpperCase() ) {
+		
 		case "ENVIRONMENTLIST":
-			updateList(request);
-			getServletContext().getRequestDispatcher("/environment/environmentmanager.jsp").forward(request, response);
+			this.updateList( request );
+			this.getServletContext().getRequestDispatcher("/environment/environmentmanager.jsp").forward( request, response );
+			
 			break;
-
+			
 		case "READ":
-			id = Integer.parseInt(request.getParameter("id"));
-			dto = service.read(id);
+			id_env = Integer.parseInt( request.getParameter("id") );
+			
+			dto = service.read(id_env);
+			
 			request.setAttribute("dto", dto);
 			
-			if (request.getParameter("update") == null) {
-				 getServletContext().getRequestDispatcher("/environment/readenvironment.jsp").forward(request, response);
-				
-			}
-			
-			else getServletContext().getRequestDispatcher("/environment/updateenvironment.jsp").forward(request, response);
+			if ( request.getParameter("update") == null )
+				this.getServletContext().getRequestDispatcher("/environment/readenvironment.jsp").forward( request, response );
+			else
+				this.getServletContext().getRequestDispatcher("/environment/updateenvironment.jsp").forward( request, response );
 			
 			break;
-
+			
 		case "INSERT":
-			String name = request.getParameter("name").toString();
-			String description = request.getParameter("description").toString();
-			dto = new EnvironmentDTO (name, description);
-			ans = service.insert(dto);
-			request.setAttribute("ans", ans);
+			String name = request.getParameter("environmentName").toString();
+			String description = request.getParameter("environmentDescription").toString();
+			String packet = request.getParameter("environmentPacket").toString() ;
+			
+			dto = new EnvironmentDTO (name, description, packet);
+			answer = service.insert(dto);
+			
+			request.setAttribute("ans", answer);
 			updateList(request);
 			getServletContext().getRequestDispatcher("/environment/environmentmanager.jsp").forward(request, response);
 			break;
 			
 		case "UPDATE":
-			id = Integer.parseInt(request.getParameter("id"));
-			name = request.getParameter("name");
-			description = request.getParameter("description");
-			dto = new EnvironmentDTO (id, name, description);
-			ans = service.update(dto);
+			dto = new EnvironmentDTO (
+					Integer.parseInt( request.getParameter("id") ),
+					request.getParameter("environmentName"),
+					request.getParameter("environmentDescription"),
+					request.getParameter("environmentPacket")
+					);
+			
+			answer = service.update( dto );
+			
+			updateList(request);
+			getServletContext().getRequestDispatcher("/packet/packetmanager.jsp").forward(request, response);
+			
+			break;
+		
+		case "DELETE":
+			id_env = Integer.parseInt( request.getParameter("id") );
+			answer = service.delete( id_env );
+			request.setAttribute("ans", answer);
+			
 			updateList(request);
 			getServletContext().getRequestDispatcher("/environment/environmentmanager.jsp").forward(request, response);
+			
 			break;
-
-		case "DELETE":
-			id = Integer.parseInt(request.getParameter("id"));
-			ans = service.delete(id);
-			request.setAttribute("ans", ans);
-			updateList(request);
-			getServletContext().getRequestDispatcher("/environment/environmentmanager.jsp").forward(request, response);	
-			break;
-		}
+		}	
 	}
 }
