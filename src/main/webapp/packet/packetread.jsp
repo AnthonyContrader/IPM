@@ -14,14 +14,19 @@
 		<div class="main">
 		<%PacketDTO p = (PacketDTO) request.getAttribute("dto");%>
 		
+		<br>
+		<br>
+		
 		<table>
 			<tr> 
 				<th>Name</th>
 				<th>Description</th>
+				<th>Os Type</th>
 			</tr>
 			<tr>
 				<td><%=p.getName()%></td>
 				<td> <%=p.getDescription()%></td>
+				<td> <%=p.getOsKey()%></td>
 			</tr>	
 			
 		</table>
