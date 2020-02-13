@@ -86,6 +86,7 @@
 	  		<label for="packet">OsType</label>
 	  	</div>
 		<select id="type" name="packetOstype">
+			<option value="" disabled selected>Choose your option</option>
 			<%
 				for (OsTypeDTO o : listos) {
 			%>
