@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.PacketDTO" import="it.contrader.dto.EnvironmentDTO"%>
+	import="it.contrader.dto.PacketDTO" import="it.contrader.dto.EnvironmentDTO" import="it.contrader.dto.CategoryDTO"%>
 	
 <!DOCTYPE html>
 <html>
@@ -18,6 +18,8 @@
 		<%
 			List<PacketDTO> listp = (List<PacketDTO>) request.getAttribute("list");
 			List<EnvironmentDTO> list = (List<EnvironmentDTO>) request.getAttribute("listos");
+			List<CategoryDTO> listc = (List<CategoryDTO>) request.getAttribute("listc");
+
 		%>
 	<br>
 	
@@ -25,7 +27,8 @@
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
-				<th>OS</th>
+				<th>Packet</th>
+				<th>Category</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -34,7 +37,7 @@
 			%>
 			<tr>
 				<td>
-				<a href=PacketServlet?mode=read&id=<%=p.getId_env()%>>
+				<a href=EnvironmentServlet?mode=read&id=<%=p.getId_env()%>>
 						<%=p.getName()%>
 				</a>
 				</td>
@@ -42,7 +45,7 @@
 				<td><%=p.getDescription()%></td>
 				
 				<td><%=p.getPacketKey()%></td>
-				
+				<td><%=p.getCategoryKey()%></td>
 				<td>
 				<a href=EnvironmentServlet?mode=read&update=true&id=<%=p.getId_env()%>>
 					Edit
@@ -91,6 +94,23 @@
 				for (PacketDTO o : listp) {
 			%>
   				<option value="<%=o.getName()%>"><%=o.getName()%></option> 
+			<%
+				}
+			%>
+		</select>
+
+	  </div>
+	  
+	  <div class="row">
+	  	 <div class="col-25">
+	  		<label for="environment">Category</label>
+	  	</div>
+		<select id="type" name="environmentCategory" required>
+			<option value="" disabled selected>Choose your option</option>
+			<%
+				for (CategoryDTO c : listc) {
+			%>
+  				<option value="<%=c.getName()%>"><%=c.getName()%></option> 
 			<%
 				}
 			%>

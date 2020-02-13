@@ -53,7 +53,12 @@ public class PacketServlet extends HttpServlet {
 			
 			dto = service.read(id_pack);
 			
+			Service<OsTypeDTO> serviceos = new OsTypeService();
+			List<OsTypeDTO> serviceListDTO = serviceos.getAll();
+			
+			request.setAttribute("listos", serviceListDTO);
 			request.setAttribute("dto", dto);
+			
 			
 			if ( request.getParameter("update") == null )
 				this.getServletContext().getRequestDispatcher("/packet/packetread.jsp").forward( request, response );
@@ -78,11 +83,11 @@ public class PacketServlet extends HttpServlet {
 		case "UPDATE":
 			dto = new PacketDTO (
 					Integer.parseInt( request.getParameter("id") ),
-					request.getParameter("packetName"),
-					request.getParameter("packetDescription"),
-					request.getParameter("packetOstype")
+						request.getParameter("packetName"),
+						request.getParameter("packetDescription"),
+						request.getParameter("packetOstype")
 					);
-			
+						
 			answer = service.update( dto );
 			
 			updateList(request);

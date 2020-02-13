@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import it.contrader.dto.PacketDTO;
 import it.contrader.service.Service;
 import it.contrader.service.PacketService;
-
+import it.contrader.dto.CategoryDTO;
+import it.contrader.service.CategoryService;
 import it.contrader.dto.EnvironmentDTO;
 import it.contrader.service.EnvironmentService;;
 
@@ -28,8 +29,13 @@ public class EnvironmentServlet extends HttpServlet {
 		Service<EnvironmentDTO> serviceos = new EnvironmentService();
 		List<EnvironmentDTO> serviceListDTO = serviceos.getAll();
 		
+		Service<CategoryDTO> servicec = new CategoryService();
+		List<CategoryDTO> categoryListDTO = servicec.getAll();
+		
 		request.setAttribute("list", packetListDTO);
 		request.setAttribute("listos", serviceListDTO);
+		request.setAttribute("listc", categoryListDTO);
+
 	}
 	
 	@Override
@@ -66,8 +72,9 @@ public class EnvironmentServlet extends HttpServlet {
 			String name = request.getParameter("environmentName").toString();
 			String description = request.getParameter("environmentDescription").toString();
 			String packet = request.getParameter("environmentPacket").toString() ;
+			String category = request.getParameter("environmentCategory").toString() ;
 			
-			dto = new EnvironmentDTO (name, description, packet);
+			dto = new EnvironmentDTO (name, description, packet, category);
 			answer = service.insert(dto);
 			
 			request.setAttribute("ans", answer);
@@ -80,7 +87,8 @@ public class EnvironmentServlet extends HttpServlet {
 					Integer.parseInt( request.getParameter("id") ),
 					request.getParameter("environmentName"),
 					request.getParameter("environmentDescription"),
-					request.getParameter("environmentPacket")
+					request.getParameter("environmentPacket"),
+					request.getParameter("environmentCategory")
 					);
 			
 			answer = service.update( dto );

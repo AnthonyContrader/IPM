@@ -13,7 +13,8 @@ public class EnvironmentConverter implements Converter<Environment, EnvironmentD
 				environment.getId_env(),
 				environment.getName(),
 				environment.getDescription(),
-				environment.getPacketKey()
+				environment.getPacketKey(),
+				environment.getCategoryKey()
 					);
 	}
 	
@@ -22,7 +23,8 @@ public class EnvironmentConverter implements Converter<Environment, EnvironmentD
 				environmentDTO.getId_env(),
 				environmentDTO.getName(),
 				environmentDTO.getDescription(),
-				environmentDTO.getPacketKey()
+				environmentDTO.getPacketKey(),
+				environmentDTO.getCategoryKey()				
 				);
 	}
 	
