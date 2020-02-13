@@ -6,6 +6,7 @@
 <title>Login SAMPLE</title>
 </head>
 <body>
+	<div class="loginContainer">
 		<form class="login" name="loginName" action="LoginServlet" method="post" onsubmit="return validate();">
 
 				<label for="user">Username: </label>
@@ -18,6 +19,9 @@
 		
 			<button type="submit" value="Login" name="pulsante">Login</button>
 		</form>
+		
+		<a href="signuppage.jsp">Want to join us? Click here!</a>
+	</div>
 
 		<script type="text/javascript">
             function validate() {

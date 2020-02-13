@@ -54,7 +54,7 @@
 	      <label for="user">Username</label>
 	    </div>
 	    <div class="col-75">
-	      <input type="text" id="user" name="username" placeholder="inserisci username">
+	      <input type="text" id="user" name="username" placeholder="inserisci username" required>
 	    </div>
 	  </div>
   <div class="row">
@@ -62,7 +62,7 @@
      <label for="pass">Password</label>
     </div>
     <div class="col-75">
-      <input type="text" id="pass" name="password" placeholder="inserisci password"> 
+      <input type="text" id="pass" name="password" placeholder="inserisci password" required> 
     </div>
   </div>
   <div class="row">
@@ -70,7 +70,8 @@
       <label for="type">Usertype</label>
     </div>
    		 <div class="col-75">
- 			<select id="type" name="usertype">
+ 			<select id="type" name="usertype" required>
+ 				<option value="" disabled selected>Choose user</option>
   				<option value="ADMIN">ADMIN</option>
   				<option value="USER">USER</option>
  

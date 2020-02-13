@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.PacketDTO"%>
+    pageEncoding="ISO-8859-1" import="java.util.List"
+    import="it.contrader.dto.PacketDTO" import="it.contrader.dto.OsTypeDTO"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,7 +17,11 @@
 		
 		<div class="main">
 		
-		<%PacketDTO p = (PacketDTO) request.getAttribute("dto");%>
+		<%
+			PacketDTO p = (PacketDTO) request.getAttribute("dto");
+			OsTypeDTO o = (OsTypeDTO) request.getAttribute("dtoos");
+			List<OsTypeDTO> listos = (List<OsTypeDTO>) request.getAttribute("listos");
+		%>
 		
 		
 		<form id="floatleft" action="PacketServlet?mode=update&id=<%=p.getId_pack()%>" method="post">
@@ -43,6 +48,17 @@
 		    </div>
 		  </div>
 		  
+		  <select id="type" name="packetOstype" required>
+			<option value="" disabled selected>Choose your option</option>
+			<%
+				for (OsTypeDTO singleo : listos) {
+			%>
+  				<option value="<%=singleo.getName()%>"><%=singleo.getName()%></option> 
+			<%
+				}
+			%>
+		</select>
+
 		  <button type="submit" >Edit</button>
 		  
 		</form>
