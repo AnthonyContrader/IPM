@@ -68,7 +68,7 @@
 	  		<label for="packet">Name</label>
 	  	</div>
 	    <div class="col-75">
-	      <input type="text" id="packet" name="packetName" placeholder="Insert packet name . . .">
+	      <input type="text" id="packet" name="packetName" placeholder="Insert packet name . . ." required>
 	    </div>
 	  </div>
 	  
@@ -76,8 +76,8 @@
 	  	 <div class="col-25">
 	  		<label for="packet">Description</label>
 	  	</div>
-	    <div class="col-75">
-	      <input type="text" id="desc" name="packetDescription" placeholder="Insert description . . ."> 
+	    <div class="col-75" >
+	      <input type="text" id="desc" name="packetDescription" placeholder="Insert description . . ." required> 
 	    </div>
 	  </div>
 	  
@@ -85,7 +85,7 @@
 	  	 <div class="col-25">
 	  		<label for="packet">OsType</label>
 	  	</div>
-		<select id="type" name="packetOstype">
+		<select id="type" name="packetOstype" required>
 			<option value="" disabled selected>Choose your option</option>
 			<%
 				for (OsTypeDTO o : listos) {
