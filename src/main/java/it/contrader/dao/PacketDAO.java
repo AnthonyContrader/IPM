@@ -9,11 +9,12 @@ import it.contrader.model.Packet;
 
 public class PacketDAO implements DAO<Packet> {
 	private final String QUERY_ALL = "SELECT * FROM packet";
-	private final String QUERY_CREATE = "INSERT INTO packet (name, description) VALUES (?,?)";
+	private final String QUERY_CREATE = "INSERT INTO packet (name, description, oskey) VALUES (?,?, ?)";
 	private final String QUERY_READ = "SELECT * FROM packet WHERE id_pack=?";
-	private final String QUERY_UPDATE = "UPDATE packet SET name=?, description=? WHERE id_pack=?";
+	private final String QUERY_UPDATE = "UPDATE packet SET name=?, description=?, oskey=? WHERE id_pack=?";
 	private final String QUERY_DELETE = "DELETE FROM packet WHERE id_pack=?";
 	private final String QUERY_FIND = "SELECT * FROM packet WHERE name=?";
+	private final String QUERY_OS = "SELECT packet.*, ostype.name, ostype.comm FROM packet JOIN ostype ON packet.oskey = ostype.id AND packet.id_pack = ?";
 	
 	// Empty Constructor
 	public PacketDAO() {}
@@ -24,6 +25,7 @@ public class PacketDAO implements DAO<Packet> {
 			PreparedStatement preparedStatement = connection.prepareStatement(QUERY_CREATE);
 			preparedStatement.setString(1, packetToInsert.getName() );
 			preparedStatement.setString(2, packetToInsert.getDescription() );
+			preparedStatement.setString(3, packetToInsert.getOsKey() );
 			preparedStatement.execute();
 			return true;
 		} catch (SQLException e) {
@@ -42,7 +44,8 @@ public class PacketDAO implements DAO<Packet> {
 			
 			Packet readPacket = new Packet (
 					resultSet.getString("name"),
-					resultSet.getString("description")
+					resultSet.getString("description"),
+					resultSet.getString("oskey")
 					);
 			
 			readPacket.setId_pack(
@@ -75,7 +78,8 @@ public class PacketDAO implements DAO<Packet> {
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, packetToUpdate.getName() );
 				preparedStatement.setString(2, packetToUpdate.getDescription() );
-				preparedStatement.setInt(3, packetToUpdate.getId_pack() );
+				preparedStatement.setString(3, packetToUpdate.getOsKey() );
+				preparedStatement.setInt(4, packetToUpdate.getId_pack() );
 				
 				int updateResult = preparedStatement.executeUpdate();
 				
@@ -125,7 +129,8 @@ public class PacketDAO implements DAO<Packet> {
 				
 				packet = new Packet (
 						resultSet.getString("name"),
-						resultSet.getString("description")
+						resultSet.getString("description"),
+						resultSet.getString("oskey")
 						);
 				
 				packet.setId_pack(packId);
@@ -153,7 +158,8 @@ public class PacketDAO implements DAO<Packet> {
 				return new Packet(
 					resultSet.getInt("id_pack"),
 					resultSet.getString("name"),
-					resultSet.getString("description")
+					resultSet.getString("description"),
+					resultSet.getString("oskey")
 					);
 			
 			

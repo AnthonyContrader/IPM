@@ -12,7 +12,8 @@ public class PacketConverter implements Converter<Packet, PacketDTO> {
 		return new PacketDTO(
 					packet.getId_pack(),
 					packet.getName(),
-					packet.getDescription()
+					packet.getDescription(),
+					packet.getOsKey()
 					);
 	}
 	
@@ -20,7 +21,8 @@ public class PacketConverter implements Converter<Packet, PacketDTO> {
 		return new Packet (
 				packetDTO.getId_pack(),
 				packetDTO.getName(),
-				packetDTO.getDescription()
+				packetDTO.getDescription(),
+				packetDTO.getOsKey()
 				);
 	}
 	

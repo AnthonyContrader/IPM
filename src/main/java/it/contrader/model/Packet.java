@@ -6,66 +6,109 @@ public class Packet {
 	private String name;
 	private String description;
 	
-	// Empty constructor
-	public Packet() {}
+	// Foreign key
+	private String osKey;
 	
-	// Half constructor
-	public Packet(String newName, String newDescription) {
-		this.name = newName;
-		this.description = newDescription;
+	public Packet(int id_pack, String name, String description, String osKey) {
+		super();
+		this.id_pack = id_pack;
+		this.name = name;
+		this.description = description;
+		this.osKey = osKey;
 	}
-	
-	// Full constructor
-	public Packet(int newId, String newName, String newDescription) {
-		this.id_pack = newId;
-		this.name = newName;
-		this.description = newDescription;
+
+	public Packet(String name, String description, String osKey) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.osKey = osKey;
 	}
-	
-	// Getters
-	public int getId_pack() { return this.id_pack; }
-	public String getName() { return this.name; }
-	public String getDescription() { return this.description; }
-	
-	// Setters
-	public void setId_pack(int newId) { this.id_pack = newId; }
-	public void setName(String newName) { this.name = newName; }
-	public void setDescription(String newDescription) { this.description = newDescription; }
-	
-	// ToString() method
+
+	public Packet() {
+		super();
+	}
+
+	public int getId_pack() {
+		return id_pack;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getOsKey() {
+		return osKey;
+	}
+
+	public void setId_pack(int id_pack) {
+		this.id_pack = id_pack;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setOsKey(String osKey) {
+		this.osKey = osKey;
+	}
+
 	@Override
 	public String toString() {
-		return Integer.toString( this.id_pack ) + "\t" +
-				this.name + "\t\t" +
-				this.description;
+		return "Packet [id_pack=" + id_pack + ", name=" + name + ", description=" + description + ", osKey=" + osKey
+				+ ", getId_pack()=" + getId_pack() + ", getName()=" + getName() + ", getDescription()="
+				+ getDescription() + ", getOsKey()=" + getOsKey() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
 	}
+
 	
-	// equals override
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + id_pack;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((osKey == null) ? 0 : osKey.hashCode());
+		return result;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
-		if ( this == obj )
+		if (this == obj)
 			return true;
-		
-		if ( this.getClass() != obj.getClass() || obj == null)
+		if (obj == null)
 			return false;
-		
-		Packet otherPacket = (Packet) obj;
-		
-		if ( this.getId_pack() != otherPacket.getId_pack() )
+		if (getClass() != obj.getClass())
 			return false;
-		
-		if ( this.getName() == null || otherPacket.getName() == null )
+		Packet other = (Packet) obj;
+		if (description == null) {
+			if (other.description != null)
 				return false;
-		
-		if ( this.getDescription() == null || otherPacket.getDescription() == null)
-				return false;
-		
-		if ( !this.getName().equals( otherPacket.getName() ) )
-				return false;
-		
-		if ( !this.getDescription().equals( otherPacket.getDescription() ) )
+		} else if (!description.equals(other.description))
 			return false;
-		
+		if (id_pack != other.id_pack)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (osKey == null) {
+			if (other.osKey != null)
+				return false;
+		} else if (!osKey.equals(other.osKey))
+			return false;
 		return true;
 	}
+
+	
 }
