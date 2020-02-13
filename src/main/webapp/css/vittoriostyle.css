@@ -341,3 +341,11 @@ div.navbar a.active {
 	align-items: center;
 	
 }
+
+.signupcssContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}

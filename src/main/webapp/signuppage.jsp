@@ -10,7 +10,9 @@
 </head>
 <body>
 
-<form id="floatright" action="SignupServlet?mode=signup" method="post">
+<div class="signupcssContainer">
+  <form class="login" action="SignupServlet?mode=signup" method="post">
+  	<p style="text-align: center;">Who are you?!?!</p>
 	<div class="row">
 		<div class="col-25">
 	      <label for="user">Username</label>
@@ -30,6 +32,7 @@
   	</div>
     	<button type="submit" >Insert</button>
   </form>
+ </div>
 
 </body>
 </html>
