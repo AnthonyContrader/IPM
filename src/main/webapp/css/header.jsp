@@ -17,6 +17,7 @@
   <a href="PacketServlet?mode=packetlist">Packet</a>
   <a href="CategoryServlet?mode=categorylist">Category</a>
   <a href="OsTypeServlet?mode=ostypelist">OS Type</a>
+  <a href="FeedbackServlet?mode=feedbacklist">Feedback</a>
   <a href="LogoutServlet" id="logout">Logout</a>
 </div>
 

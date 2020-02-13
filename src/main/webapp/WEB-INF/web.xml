@@ -72,4 +72,14 @@
     <servlet-name>OsTypeServlet</servlet-name>
     <url-pattern>/OsTypeServlet</url-pattern>
   </servlet-mapping>
+            <servlet>
+    <description></description>
+    <display-name>FeedbackServlet</display-name>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <servlet-class>it.contrader.servlets.FeedbackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FeedbackServlet</servlet-name>
+    <url-pattern>/FeedbackServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
