@@ -69,14 +69,19 @@ h2 {
 	
 }
 .login{
-	position:fixed;
+/* 	position:fixed;
 	heigth:50%;
 	width:20%;
 	margin-left:35.6%;
 	margin-right:44.4%;
 	margin-top:10%;
 	margin-bottom:auto;
-	z-index:1;
+	z-index:1; */
+	
+	heigth:100%;
+	width:50%;
+	
+	margin-top: 10%;
 }
 
 .login input {
@@ -327,4 +332,12 @@ div.navbar a.active {
 	z-index: -1; opacity : .9;
 	width: 8%;
 }
+
+.loginContainer {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	
 }
