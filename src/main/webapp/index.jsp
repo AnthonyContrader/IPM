@@ -18,6 +18,8 @@
 		
 			<button type="submit" value="Login" name="pulsante">Login</button>
 		</form>
+		
+		<a href="signuppage.jsp">Not registred? Register now!</a>
 
 		<script type="text/javascript">
             function validate() {

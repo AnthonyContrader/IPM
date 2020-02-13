@@ -29,7 +29,12 @@
 					</div>
 					
 					<div class="col-75">
-						<input type="text" id="feedback" name="vote" value=<%=f.getVote()%>>>
+						<select name="vote" required>
+						<option value="" disabled selected>Choose your option</option>
+							<% for (int i=1; i<6; i++) { %>
+							<option><%=i %></option>
+							<% } %>
+						</select>
 					</div>
 				</div>
 				
@@ -40,7 +45,7 @@
 						</div>
 						
 						<div class="col-75">
-							<input type="text" id="feedback" name="review" value=<%=f.getReview()%>>>
+							<input type="text" id="feedback" name="review" value=<%=f.getReview()%>>
 						</div>
 					</div>
 				</div>
