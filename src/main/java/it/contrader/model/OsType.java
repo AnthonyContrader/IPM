@@ -58,15 +58,13 @@ public class OsType {
 		OsType other = (OsType) obj;
 		if (id!=other.id)
 			return false;
-		
 		if (name==null) {
 			if(other.name != null)
 			return false;
 		} else if (!name.equals(other.name))
 			return false;
-		
-		if (comm==null)
-			if(other.comm != null) {
+		if (comm==null) {
+			if(other.comm != null) 
 			return false;
 		} else if(!comm.equals(other.comm))
 			return false;

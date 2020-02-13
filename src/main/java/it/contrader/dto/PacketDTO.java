@@ -1,43 +1,77 @@
 package it.contrader.dto;
 
-
 public class PacketDTO {
 	// FIELDS
 	private int id_pack;
 	private String name;
 	private String description;
 	
+	// Foreign key
+	private String osKey;
+	
 	// Empty constructor
 	public PacketDTO() {}
 	
-	// Half constructor
-	public PacketDTO(String newName, String newDescription) {
-		this.name = newName;
-		this.description = newDescription;
+	
+
+	public PacketDTO(int id_pack, String name, String description, String osKey) {
+		super();
+		this.id_pack = id_pack;
+		this.name = name;
+		this.description = description;
+		this.osKey = osKey;
 	}
-	
-	// Full constructor
-	public PacketDTO(int newId, String newName, String newDescription) {
-		this.id_pack = newId;
-		this.name = newName;
-		this.description = newDescription;
+
+
+
+	public PacketDTO(String name, String description, String osKey) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.osKey = osKey;
 	}
-	
-	// Getters
-	public int getId_pack() { return this.id_pack; }
-	public String getName() { return this.name; }
-	public String getDescription() { return this.description; }
-	
-	// Setters
-	public void setId_pack(int newId) { this.id_pack = newId; }
-	public void setName(String newName) { this.name = newName; }
-	public void setDescription(String newDescription) { this.description = newDescription; }
-	
-	// ToString() method
+
+
+
+	public int getId_pack() {
+		return id_pack;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getOsKey() {
+		return osKey;
+	}
+
+	public void setId_pack(int id_pack) {
+		this.id_pack = id_pack;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public void setOsKey(String osKey) {
+		this.osKey = osKey;
+	}
+
 	@Override
 	public String toString() {
-		return Integer.toString( this.id_pack ) + "\t" +
-				this.name + "\t\t" +
-				this.description;
+		return "PacketDTO [id_pack=" + id_pack + ", name=" + name + ", description=" + description + ", osKey=" + osKey
+				+ "]";
 	}
+	
+	// Half constructor
+	
+	
 }

@@ -40,7 +40,7 @@
 		  
 		  <div class="row">
 		    <div class="col-25">
-		     <label for="command">Command</label>
+		     <label for="ostype">Command</label>
 		    </div>
 		    
 		    <div class="col-75">

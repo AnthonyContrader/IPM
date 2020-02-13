@@ -11,6 +11,10 @@ import it.contrader.dto.PacketDTO;
 import it.contrader.service.Service;
 import it.contrader.service.PacketService;
 
+import it.contrader.dto.OsTypeDTO;
+import it.contrader.service.OsTypeService;;
+
+
 public class PacketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -20,9 +24,12 @@ public class PacketServlet extends HttpServlet {
 	public void updateList(HttpServletRequest request) {
 		Service<PacketDTO> service = new PacketService();
 		List<PacketDTO> packetListDTO = service.getAll();
-		PacketService serviceFind = new PacketService();
+		
+		Service<OsTypeDTO> serviceos = new OsTypeService();
+		List<OsTypeDTO> serviceListDTO = serviceos.getAll();
 		
 		request.setAttribute("list", packetListDTO);
+		request.setAttribute("listos", serviceListDTO);
 	}
 	
 	@Override
@@ -58,7 +65,9 @@ public class PacketServlet extends HttpServlet {
 		case "INSERT":
 			String name = request.getParameter("packetName").toString();
 			String description = request.getParameter("packetDescription").toString();
-			dto = new PacketDTO (name, description);
+			String ostype = request.getParameter("packetOstype").toString() ;
+			
+			dto = new PacketDTO (name, description, ostype);
 			answer = service.insert(dto);
 			
 			request.setAttribute("ans", answer);
@@ -70,7 +79,8 @@ public class PacketServlet extends HttpServlet {
 			dto = new PacketDTO (
 					Integer.parseInt( request.getParameter("id") ),
 					request.getParameter("packetName"),
-					request.getParameter("packetDescription")
+					request.getParameter("packetDescription"),
+					request.getParameter("packetOstype")
 					);
 			
 			answer = service.update( dto );

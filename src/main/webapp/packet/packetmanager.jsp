@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.PacketDTO"%>
+	import="it.contrader.dto.PacketDTO" import="it.contrader.dto.OsTypeDTO"%>
 	
 <!DOCTYPE html>
 <html>
@@ -17,6 +17,7 @@
 	<div class="main">
 		<%
 			List<PacketDTO> list = (List<PacketDTO>) request.getAttribute("list");
+			List<OsTypeDTO> listos = (List<OsTypeDTO>) request.getAttribute("listos");
 		%>
 	<br>
 	
@@ -24,6 +25,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
+				<th>OS</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -38,6 +40,8 @@
 				</td>
 				
 				<td><%=p.getDescription()%></td>
+				
+				<td><%=p.getOsKey()%></td>
 				
 				<td>
 				<a href=PacketServlet?mode=read&update=true&id=<%=p.getId_pack()%>>
@@ -75,6 +79,22 @@
 	    <div class="col-75">
 	      <input type="text" id="desc" name="packetDescription" placeholder="Insert description . . ."> 
 	    </div>
+	  </div>
+	  
+	  <div class="row">
+	  	 <div class="col-25">
+	  		<label for="packet">OsType</label>
+	  	</div>
+		<select id="type" name="packetOstype">
+			<%
+				for (OsTypeDTO o : listos) {
+			%>
+  				<option value="<%=o.getName()%>"><%=o.getName()%></option> 
+			<%
+				}
+			%>
+		</select>
+
 	  </div>
 	  	  
 	  <button type="submit" >Insert</button>
