@@ -349,3 +349,10 @@ div.navbar a.active {
 	align-items: center;
 	flex-wrap: nowrap;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
