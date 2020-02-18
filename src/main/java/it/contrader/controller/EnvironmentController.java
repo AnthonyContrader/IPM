@@ -52,7 +52,7 @@ public class EnvironmentController {
 	@GetMapping ("/read")
 	public String read (HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
-		return "environments";
+		return "readenvironment";
 	}
 	
 	// Altra annotation che permette di indicare che viene applicato il metodo HTTP POST
