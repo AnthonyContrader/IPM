@@ -75,4 +75,11 @@ public class PacketController {
 		return "packets";
 	}
 	
+	@GetMapping("/find")
+	public String find(HttpServletRequest request, @RequestParam("nameFind") String nameFind) {
+		PacketDTO dto = service.findByName(nameFind);
+		
+		request.getSession().setAttribute("dto", service.read( dto.getId() ) );
+		return "readpacket";
+	}
 }

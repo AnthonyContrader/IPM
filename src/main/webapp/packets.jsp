@@ -81,6 +81,20 @@
 
 			<button type="submit">Insert packet!</button>
 		</form>
+		
+		<form id="floatright" action="/packet/find" method="get">
+			<div class="row">
+				<div class="col-25">
+					<label for="packetName">Name</label>
+				</div>
+				<div class="col-75">
+					<input type="text" id="packetFindName" name="nameFind"
+						placeholder="Insert packet name to search for">
+				</div>
+			</div>
+
+			<button type="submit">Find packet!</button>
+		</form>
 
 	</div>
 	<br>
