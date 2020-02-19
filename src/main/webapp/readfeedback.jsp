@@ -19,7 +19,7 @@
 		
 		<div class="navbar">
 			<a href="/homeadmin.jsp">Home</a> 
-			<a class="active" href="/feedback/getall">Feedbacks</a> 
+			<a class="active" href="/feedbacks/getall">Feedbacks</a> 
 			<a href="/feedback/logout" id="logout">Logout</a>
 		</div>
 		

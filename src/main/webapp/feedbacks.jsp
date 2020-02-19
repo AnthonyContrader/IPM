@@ -55,11 +55,11 @@
 					</td>
 					
 					<td>
-						<a href="/feedback/preupdate?id=<%=f.getId()%>">Edit</a>
+						<a href="/feedbacks/preupdate?id=<%=f.getId()%>">Edit</a>
 					</td>
 					
 					<td>
-						<a href="/feedback/delete?id=<%=f.getId()%>">Delete</a>
+						<a href="/feedbacks/delete?id=<%=f.getId()%>">Delete</a>
 					</td>
 				</tr>
 				
@@ -68,7 +68,7 @@
 				%>
 			</table>
 			
-			<form id="floatright" action="/feedback/insert" method="post">
+			<form id="floatright" action="/feedbacks/insert" method="post">
 				<div class="row">
 					<div class="col-25">
 						<label for="feedbackVote">Vote</label>

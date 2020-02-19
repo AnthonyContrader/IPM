@@ -13,7 +13,7 @@ import it.contrader.dto.FeedbackDTO;
 import it.contrader.service.FeedbackService;
 
 @Controller
-@RequestMapping("/feedback")
+@RequestMapping("/feedbacks")
 public class FeedbackController 
 {
 	@Autowired

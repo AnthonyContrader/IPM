@@ -27,7 +27,7 @@
 	
 		<div class="main">
 			<%FeedbackDTO f = (FeedbackDTO) request.getSession().getAttribute("dto");%>
-			<form id="floatleft" action="/feedback/update" method="post">
+			<form id="floatleft" action="/feedbacks/update" method="post">
 				<div class="row">
 					<div class="col-25">
 						<label for="feedbackVote">Vote</label>
