@@ -43,8 +43,7 @@
 				for (OsTypeDTO o : list) {
 			%>
 			<tr>
-				<td><a href="/ostype/read?id=<%=o.getId()%>"> <%=o.getOsType()%>
-				</a></td>
+				<td><a href="/ostype/read?id=<%=o.getId()%>"> <%=o.getOsType()%></a></td>
 				<td><%=o.getCommand()%></td>
 				<td><a href="/ostype/preupdate?id=<%=o.getId()%>">Edit</a></td>
 				<td><a href="/ostype/delete?id=<%=o.getId()%>">Delete</a></td>
@@ -57,19 +56,19 @@
 		<form id="floatright" action="/ostype/insert" method="post">
 			<div class="row">
 				<div class="col-25">
-					<label for="ostypetName">OsType</label>
+					<label for="ostype">OsType</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="ostypetName" name="name"
+					<input type="text" id="ostype" name="ostype"
 						placeholder="Insert ostype name">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="ostypeComm">Command</label>
+					<label for="command">Command</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="ostypeComm" name="command"
+					<input type="text" id="command" name="command"
 						placeholder="Insert command">
 				</div>
 			</div>

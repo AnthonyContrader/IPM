@@ -30,7 +30,7 @@ public class OsTypeController {
 	}
 	
 	@PostMapping("/insert")
-	public String insert (HttpServletRequest request, @RequestParam("osType") String osType,
+	public String insert (HttpServletRequest request, @RequestParam("ostype") String osType,
 			@RequestParam("command") String command) {
 		OsTypeDTO dto = new OsTypeDTO();
 		dto.setOsType(osType);

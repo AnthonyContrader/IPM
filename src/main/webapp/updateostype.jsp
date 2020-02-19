@@ -34,7 +34,7 @@
       <label for="ostype">Name</label>
     </div>
     <div class="col-75">
-      <input type="text" id="ostype" name="name" value=<%=o.getOsType()%>>
+      <input type="text" id="ostype" name="ostype" value=<%=o.getOsType()%>>
     </div>
   </div>
   <div class="row">
