@@ -28,13 +28,15 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th>Username</th>
-				<th>Password</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>OSType</th>
 			</tr>
 			<tr>
 				<td><%=p.getId()%></td>
 				<td><%=p.getName()%></td>
 				<td><%=p.getDescription()%></td>
+				<td><%=p.getPacketostype().getOsType()%>
 			</tr>
 		</table>
 

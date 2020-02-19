@@ -1,4 +1,4 @@
-<%@ page import="it.contrader.dto.PacketDTO" import="java.util.*"%>
+<%@ page import="it.contrader.dto.PacketDTO" import="it.contrader.dto.OsTypeDTO" import="java.util.*"%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -22,6 +22,7 @@
 	<div class="main">
 		<%
 			List<PacketDTO> list = (List<PacketDTO>) request.getSession().getAttribute("list");
+			List<OsTypeDTO> listos = (List<OsTypeDTO>) request.getSession().getAttribute("listos");
 		%>
 
 		<br>
@@ -30,6 +31,7 @@
 			<tr>
 				<th>Name</th>
 				<th>Description</th>
+				<th>OS</th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -43,6 +45,10 @@
 				
 				<td>
 					<%=p.getDescription()%>
+				</td>
+				
+				<td>
+					<%=p.getPacketostype().getOsType()%>
 				</td>
 				
 				<td>
@@ -69,6 +75,7 @@
 						placeholder="Insert packet name">
 				</div>
 			</div>
+			
 			<div class="row">
 				<div class="col-25">
 					<label for="packetDesc">Description</label>
@@ -78,6 +85,17 @@
 						placeholder="Insert description">
 				</div>
 			</div>
+			
+			<select id="type" name="packetOstype" required>
+				<option value="" disabled selected>Choose your option</option>
+			<%
+				for (OsTypeDTO o : listos) {
+			%>
+  				<option value="<%=o.getId()%>"><%=o.getOsType()%></option> 
+			<%
+				}
+			%>
+		</select>
 
 			<button type="submit">Insert packet!</button>
 		</form>

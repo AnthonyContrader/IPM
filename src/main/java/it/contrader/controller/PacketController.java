@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.contrader.dto.PacketDTO;
+import it.contrader.model.OsType;
+import it.contrader.service.OsTypeService;
 import it.contrader.service.PacketService;
 
 @Controller
@@ -19,6 +21,9 @@ public class PacketController {
 	@Autowired
 	private PacketService service;
 	
+	@Autowired
+	private OsTypeService serviceos;
+	
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
@@ -27,13 +32,15 @@ public class PacketController {
 	
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute( "list", service.getAll() );
+		request.getSession().setAttribute( "listos", serviceos.getAll());
 	}
 	
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("name") String name, @RequestParam("description") String description) {
+	public String insert(HttpServletRequest request, @RequestParam("name") String name, @RequestParam("description") String description, @RequestParam("packetOstype") OsType ost) {
 		PacketDTO dto = new PacketDTO();
 		dto.setName(name);
 		dto.setDescription(description);
+		dto.setPacketostype(ost);
 		
 		service.insert( dto );
 		
@@ -57,17 +64,19 @@ public class PacketController {
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", service.read(id));
+		request.getSession().setAttribute("listos", serviceos.getAll());
 		return "updatepacket";
 	}
 
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("name") String name,
-			@RequestParam("description") String description) {
+			@RequestParam("description") String description, @RequestParam("packetOstype") OsType ost) {
 
 		PacketDTO dto = new PacketDTO();
 		dto.setId(id);
 		dto.setName(name);
 		dto.setDescription(description);
+		dto.setPacketostype(ost);
 		
 		service.update(dto);
 		

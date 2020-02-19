@@ -16,7 +16,8 @@ public class PacketConverter extends AbstractConverter<Packet, PacketDTO>{
 		return new Packet (
 			dto.getId(),
 			dto.getName(),
-			dto.getDescription()
+			dto.getDescription(),
+			dto.getPacketostype()
 			);
 	}
 
@@ -28,7 +29,8 @@ public class PacketConverter extends AbstractConverter<Packet, PacketDTO>{
 		return new PacketDTO (
 				entity.getId(),
 				entity.getName(),
-				entity.getDescription()
+				entity.getDescription(),
+				entity.getPacketostype()
 				);
 	}
 
