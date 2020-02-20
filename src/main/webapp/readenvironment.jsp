@@ -30,11 +30,14 @@
 				<th>ID</th>
 				<th>Name</th>
 				<th>Description</th>
+				<th>Packet</th>
+				
 			</tr>
 			<tr>
 				<td><%=e.getId()%></td>
 				<td><%=e.getName()%></td>
 				<td><%=e.getDescription()%></td>
+				<td><%=e.getEnvironmentpacket().getName()%></td>
 			</tr>
 		</table>
 
