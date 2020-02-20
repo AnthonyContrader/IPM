@@ -48,14 +48,13 @@
 							<%=c.getName()%>
 						</a>
 					</td>
-					
 					<td>
-						<a href="/categories/preupdate?id=<%=c.getId()%>">Edit</a>
-					</td>
-					
-					<td>
-						<a href="/categories/delete?id=<%=c.getId()%>">Delete</a>
-					</td>
+					<a href="/categories/preupdate?id=<%=c.getId()%>"><img src="/css/edit.png" height="30" width = "30"></a>
+				</td>
+
+				<td>
+					<a href="/categories/delete?id=<%=c.getId()%>"><img src="/css/delete.png" height="30" width = "30"></a>
+				</td>
 				</tr>
 				
 				<%

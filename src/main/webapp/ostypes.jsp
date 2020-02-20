@@ -45,8 +45,13 @@
 			<tr>
 				<td><a href="/ostype/read?id=<%=o.getId()%>"> <%=o.getOsType()%></a></td>
 				<td><%=o.getCommand()%></td>
-				<td><a href="/ostype/preupdate?id=<%=o.getId()%>">Edit</a></td>
-				<td><a href="/ostype/delete?id=<%=o.getId()%>">Delete</a></td>
+				<td>
+					<a href="/ostype/preupdate?id=<%=o.getId()%>"><img src="/css/edit.png" height="30" width = "30"></a>
+				</td>
+
+				<td>
+					<a href="/ostype/delete?id=<%=o.getId()%>"><img src="/css/delete.png" height="30" width = "30"></a>
+				</td>
 			</tr>
 			<%
 				}

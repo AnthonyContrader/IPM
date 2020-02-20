@@ -55,12 +55,12 @@
 					</td>
 					
 					<td>
-						<a href="/feedbacks/preupdate?id=<%=f.getId()%>">Edit</a>
-					</td>
-					
-					<td>
-						<a href="/feedbacks/delete?id=<%=f.getId()%>">Delete</a>
-					</td>
+					<a href="/feedback/preupdate?id=<%=f.getId()%>"><img src="/css/edit.png" height="30" width = "30"></a>
+				</td>
+
+				<td>
+					<a href="/feedback/delete?id=<%=f.getId()%>"><img src="/css/delete.png" height="30" width = "30"></a>
+				</td>
 				</tr>
 				
 				<%

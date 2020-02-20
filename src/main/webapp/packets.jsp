@@ -52,11 +52,11 @@
 				</td>
 				
 				<td>
-					<a href="/packet/preupdate?id=<%=p.getId()%>">Edit</a>
+					<a href="/packet/preupdate?id=<%=p.getId()%>"><img src="/css/edit.png" height="30" width = "30"></a>
 				</td>
 
 				<td>
-					<a href="/packet/delete?id=<%=p.getId()%>">Delete</a>
+					<a href="/packet/delete?id=<%=p.getId()%>"><img src="/css/delete.png" height="30" width = "30"></a>
 				</td>
 			</tr>
 			<%

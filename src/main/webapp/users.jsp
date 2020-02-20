@@ -40,10 +40,13 @@
 				</a></td>
 				<td><%=u.getPassword()%></td>
 				<td><%=u.getUsertype()%></td>
-				<td><a href="/user/preupdate?id=<%=u.getId()%>">Edit</a></td>
+				<td>
+					<a href="/user/preupdate?id=<%=u.getId()%>"><img src="/css/edit.png" height="30" width = "30"></a>
+				</td>
 
-
-				<td><a href="/user/delete?id=<%=u.getId()%>">Delete</a></td>
+				<td>
+					<a href="/user/delete?id=<%=u.getId()%>"><img src="/css/delete.png" height="30" width = "30"></a>
+				</td>
 
 			</tr>
 			<%

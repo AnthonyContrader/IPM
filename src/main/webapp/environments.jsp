@@ -53,11 +53,11 @@
 				</td>
 				
 				<td>
-					<a href="/environment/preupdate?id=<%=e.getId()%>">Edit</a>
+					<a href="/environment/preupdate?id=<%=e.getId()%>"><img src="/css/edit.png" height="30" width = "30"></a>
 				</td>
 
 				<td>
-					<a href="/environment/delete?id=<%=e.getId()%>">Delete</a>
+					<a href="/environment/delete?id=<%=e.getId()%>"><img src="/css/delete.png" height="30" width = "30"></a>
 				</td>
 				
 				<td>
