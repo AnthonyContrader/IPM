@@ -7,7 +7,7 @@
 <meta name="description" content="Packet Management">
 <meta name="author" content="Michele Bonanno">
 <link href="/css/vittoriostyle.css" rel="stylesheet">
-<title>Packet Manager</title>
+<title>Environment Manager</title>
 
 </head>
 <body>
