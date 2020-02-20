@@ -75,7 +75,13 @@
 					</div>
 					
 					<div class="col-75">
-						<input type="number" id="feedbackVote" name="vote" placeholder="Insert vote">
+						<!-- <input type="number" id="feedbackVote" name="vote" placeholder="Insert vote">-->
+						<select name="vote" required>
+						<option value="" disabled selected>Choose your option</option>
+							<% for (int i=1; i<6; i++) { %>
+							<option><%=i %></option>
+							<% } %>
+						</select>
 					</div>
 				</div>
 				
