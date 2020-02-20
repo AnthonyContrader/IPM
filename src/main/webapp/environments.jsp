@@ -34,6 +34,7 @@
 				<th>Packet</th>
 				<th></th>
 				<th></th>
+				<th></th>
 			</tr>
 			<%
 				for (EnvironmentDTO e : list) {
@@ -57,6 +58,10 @@
 
 				<td>
 					<a href="/environment/delete?id=<%=e.getId()%>">Delete</a>
+				</td>
+				
+				<td>
+					<button onclick="alert('sudo ' + '<%=e.getEnvironmentpacket().getPacketostype().getCommand()%> <%=e.getEnvironmentpacket().getName()%>')">Download</button>
 				</td>
 			</tr>
 			<%
