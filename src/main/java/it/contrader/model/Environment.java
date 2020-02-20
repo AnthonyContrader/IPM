@@ -5,33 +5,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-// Crea costruttore con tutti gli argomenti
-@AllArgsConstructor
-
-// Crea costruttore vuoto
-@NoArgsConstructor
-
-// Di Lombok, permette di generare i metodi set e get, il toString e l'equals
 @Data
-
-// Di Hibernate, effettua la creazione della tabella nel database indicato sul file application.properties
 @Entity
-
-public class Environment{
-// Permette di generare la Primary Key
-	@Id
+@NoArgsConstructor
+@AllArgsConstructor
+public class Environment {
 	
-	// Effettua l'Auto Increment del valore della Primary Key
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	//Genera le colonne che apparterranno alla tabella generata e gli attribuisce il valore di Unique
 	@Column(unique = true)
 	private String name;
 	
 	private String description;
+	
+	@JoinColumn(name = "env_packet")
+	@OneToOne
+	private Packet environmentpacket;
+	
 }

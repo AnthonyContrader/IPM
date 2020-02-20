@@ -12,7 +12,7 @@ public class EnvironmentConverter extends AbstractConverter<Environment, Environ
 	public Environment toEntity (EnvironmentDTO environmentDTO) {
 		Environment environment = null;
 		if (environmentDTO != null) {
-			environment = new Environment (environmentDTO.getId(), environmentDTO.getName(), environmentDTO.getDescription());
+			environment = new Environment (environmentDTO.getId(), environmentDTO.getName(), environmentDTO.getDescription(), environmentDTO.getEnvironmentpacket());
 		}
 		return environment;
 	}
@@ -21,7 +21,7 @@ public class EnvironmentConverter extends AbstractConverter<Environment, Environ
 	public EnvironmentDTO toDTO (Environment environment) {
 		EnvironmentDTO environmentDTO = null;
 		if (environment != null) {
-			environmentDTO = new EnvironmentDTO (environment.getId(), environment.getName(), environment.getDescription());
+			environmentDTO = new EnvironmentDTO (environment.getId(), environment.getName(), environment.getDescription(), environment.getEnvironmentpacket());
 		}
 		return environmentDTO;
 	}
