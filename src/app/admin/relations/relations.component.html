@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <table>
+        <tr>
+          <th>
+            Students
+          </th>
+          <th>
+            Exams
+          </th>
+          <th>
+            Votes
+          </th>
+        </tr>
+
+        <tr>
+          <td>
+            <select [(ngModel)]="relationtoinsert.student">
+              <option *ngFor="let entity of students" [ngValue]="entity">{{entity.name}}</option>
+            </select>
+          </td>
+          <td>
+            <select [(ngModel)]="relationtoinsert.exam">
+              <option *ngFor="let entity of exams" [ngValue]="entity">{{entity.subject}}</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" [(ngModel)]="relationtoinsert.vote"  min=1 max=30 class="form-control">
+          </td>
+          <td>
+            <button (click)="insert(relationtoinsert)" (click)="clear()"><i class="fas fa-plus"></i>Insert</button>
+          </td>
+        </tr>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <tr class="throws" *ngFor="let dto of relations">
+          <td>
+            <input [(ngModel)]="dto.student.name" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <input [(ngModel)]="dto.exam.subject" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <input [(ngModel)]="dto.vote" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+           <td>
+            <button (click)=update(dto)><i class="fas fa-edit"></i>Edit</button>
+          </td>
+
+          <td>
+            <button (click)="delete(dto)"><i class="fas fa-trash"></i>Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

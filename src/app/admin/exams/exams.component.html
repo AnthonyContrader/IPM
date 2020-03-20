@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <table>
+        <tr>
+          <th>
+            Course
+          </th>
+          <th>
+            Professor
+          </th>
+          <th>
+            Subject
+          </th>
+        </tr>
+
+        <tr>
+          <td for="validationDefault01">
+            <input [(ngModel)]="dto.course" type="text" class="form-control" aria-label="Small" id="validationDefault01" aria-describedby="inputGroup-sizing-sm" required>
+          </td>
+
+          <td for="validationDefault02">
+            <input [(ngModel)]="dto.professor" type="text" class="form-control" aria-label="Small" id="validationDefault01" aria-describedby="inputGroup-sizing-sm" required>
+          </td>
+
+          <td for="validationDefault03">
+            <input [(ngModel)]="dto.subject" type="text" class="form-control" aria-label="Small" id="validationDefault03" aria-describedby="inputGroup-sizing-sm" required>
+          </td>
+
+          <td>
+            <button (click)="insert(dto)" (click)="clear()"><i class="fas fa-plus"></i>Insert</button>
+          </td>
+  
+        </tr>
+        
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <tr *ngFor="let dto of dtolist">
+          <td>
+            <input [(ngModel)]="dto.course" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <input [(ngModel)]="dto.professor" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <input [(ngModel)]="dto.subject" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <button (click)=update(dto)><i class="fas fa-edit"></i>Edit</button>
+          </td>
+
+          <td>
+            <button (click)="delete(dto.id)"><i class="fas fa-trash"></i>Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

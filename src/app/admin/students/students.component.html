@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Surname
+          </th>
+          <th>
+            Age
+          </th>
+          <th>
+            Gender
+          </th>
+        </tr>
+
+        <tr>
+          <td for="validationDefault01">
+            <input [(ngModel)]="dto.name" type="text" class="form-control" aria-label="Small" id="validationDefault01" aria-describedby="inputGroup-sizing-sm" required>
+          </td>
+
+          <td for="validationDefault02">
+            <input [(ngModel)]="dto.surname" type="text" class="form-control" aria-label="Small" id="validationDefault01" aria-describedby="inputGroup-sizing-sm" required>
+          </td>
+
+          <td for="validationDefault03">
+            <input [(ngModel)]="dto.age" type="number" min=1 max=99 class="form-control" aria-label="Small" id="validationDefault01" aria-describedby="inputGroup-sizing-sm" required>
+          </td>
+
+          <td for="validationDefault04">
+            <select [(ngModel)]="dto.gender" class="form-control" aria-label="Small"  id="validationDefault01" aria-describedby="inputGroup-sizing-sm" required>
+              <option value="" disabled selected>Select Gender</option>
+					  	<option value="Male">Male</option>
+						  <option value="Female">Female</option>
+            </select>
+          </td>
+
+          <td>
+            <button (click)="insert(dto)" (click)="clear()"><i class="fas fa-plus"></i>Insert</button>
+          </td>
+
+  
+        </tr>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <tr *ngFor="let dto of dtolist">
+          <td>
+            <input [(ngModel)]="dto.name" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <input [(ngModel)]="dto.surname" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <input [(ngModel)]="dto.age" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <input [(ngModel)]="dto.gender" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+          </td>
+
+          <td>
+            <button (click)=update(dto)><i class="fas fa-edit"></i>Edit</button>
+          </td>
+
+          <td>
+            <button (click)="delete(dto.id)"><i class="fas fa-trash"></i>Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
